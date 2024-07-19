@@ -2,17 +2,18 @@
 
 with pkgs; [
   # General packages for development and system management
-  alacritty
+	wezterm
+	neovim
   aspell
   aspellDicts.en
   bash-completion
-  bat
   btop
   coreutils
   killall
-  neofetch
+  fastfetch
   openssh
   sqlite
+	postgresql
   wget
   zip
 
@@ -33,24 +34,30 @@ with pkgs; [
   fd
   font-awesome
   hack-font
+	jetbrains-mono
   noto-fonts
   noto-fonts-emoji
   meslo-lgs-nf
 
   # Node.js development tools
-  nodePackages.npm # globally install npm
+	pnpm
+  nodePackages.npm
   nodePackages.prettier
   nodejs
 
   # Text and terminal utilities
+	tealdeer
+	difftastic
+	delta # TODO: rm me
+	yazi
   htop
   hunspell
   iftop
-  jetbrains-mono
   jq
+	lazygit
   ripgrep
+	bat
   tree
-  tmux
   unrar
   unzip
   zsh-powerlevel10k

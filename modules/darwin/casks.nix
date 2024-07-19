@@ -9,18 +9,16 @@ _:
   "discord"
   "notion"
   "slack"
-  "telegram"
   "zoom"
 
   # Utility Tools
   "syncthing"
-
-  # Entertainment Tools
-  "vlc"
+	"cleanmymac"
 
   # Productivity Tools
   "raycast"
 
   # Browsers
+	"arc"
   "google-chrome"
 ]

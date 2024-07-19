@@ -40,8 +40,10 @@ in
     # This message is safe to ignore. (https://github.com/dustinlyons/nixos-config/issues/83)
 
     masApps = {
-      "1password" = 1333542190;
-      "wireguard" = 1451685025;
+      # "1password" = 1333542190;
+			# "wireguard" = 1451685025;
+			telegram = 747648890;
+			# paste = 967805235;
     };
   };
 
@@ -57,10 +59,37 @@ in
           additionalFiles
           { "emacs-launcher.command".source = myEmacsLauncher; }
         ];
+				sessionPath = [
+					"$HOME/.pnpm-packages/bin"
+					"$HOME/.pnpm-packages"
+					"$HOME/.npm-packages/bin"
+					"$HOME/bin"
+					"$HOME/.local/share/bin"
+				];
+
+				sessionVariables = {
+					EDITOR = "nvim -b";
+					VISITOR = config.home.sessionVariables.EDITOR;
+					ALTERNATE_EDITOR = "code";
+				};
 
         stateVersion = "23.11";
       };
       programs = {} // import ../shared/home-manager.nix { inherit config pkgs lib; };
+			editorconfig = {
+				enable = true;
+				settings = {
+					"*" = {
+						charset = "utf-8";
+						trim_trailing_whitespace = true;
+						insert_final_newline = true;
+						max_line_width = 80;
+						indent_style = "tab";
+					};
+				};
+			};
+
+
 
       # Marked broken Oct 20, 2022 check later to remove this
       # https://github.com/nix-community/home-manager/issues/3344
@@ -71,29 +100,21 @@ in
   # Fully declarative dock using the latest from Nix Store
   local = { 
     dock = {
-      enable = true;
+      enable = false;
       entries = [
-        { path = "/Applications/Slack.app/"; }
-        { path = "/System/Applications/Messages.app/"; }
-        { path = "/System/Applications/Facetime.app/"; }
-        { path = "${pkgs.alacritty}/Applications/Alacritty.app/"; }
-        { path = "/System/Applications/Music.app/"; }
-        { path = "/System/Applications/News.app/"; }
-        { path = "/System/Applications/Photos.app/"; }
-        { path = "/System/Applications/Photo Booth.app/"; }
-        { path = "/System/Applications/TV.app/"; }
-        { path = "/System/Applications/Home.app/"; }
-        {
-          path = toString myEmacsLauncher;
-          section = "others";
-        }
+        { path = "/Applications/Spotify.app/"; }
+				{ path = "/Applications/Things3.app/"; }
+				{ path = "/Applications/Amie.app/"; }
+        { path = "/Applications/WezTerm.app/"; }
+        { path = "/Applications/Telegram.app/"; }
+        { path = "/Applications/Arc.app/"; }
         {
           path = "${config.users.users.${user}.home}/.local/share/";
           section = "others";
           options = "--sort name --view grid --display folder";
         }
         {
-          path = "${config.users.users.${user}.home}/.local/share/downloads";
+          path = "${config.users.users.${user}.home}/Downloads";
           section = "others";
           options = "--sort name --view grid --display stack";
         }
