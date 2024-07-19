@@ -13,6 +13,8 @@ in
 {
   imports = [
    ./dock
+		./modules/skhd.nix
+		./modules/yabai.nix
   ];
 
   # It me
@@ -98,7 +100,7 @@ in
   };
 
   # Fully declarative dock using the latest from Nix Store
-  local = { 
+  local = {
     dock = {
       enable = false;
       entries = [
