@@ -43,9 +43,9 @@ in
 
     masApps = {
       # "1password" = 1333542190;
-			# "wireguard" = 1451685025;
-			telegram = 747648890;
-			# paste = 967805235;
+      # "wireguard" = 1451685025;
+      telegram = 747648890;
+      # paste = 967805235;
     };
   };
 
@@ -105,8 +105,8 @@ in
       enable = false;
       entries = [
         { path = "/Applications/Spotify.app/"; }
-				{ path = "/Applications/Things3.app/"; }
-				{ path = "/Applications/Amie.app/"; }
+        { path = "/Applications/Things3.app/"; }
+        { path = "/Applications/Amie.app/"; }
         { path = "/Applications/WezTerm.app/"; }
         { path = "/Applications/Telegram.app/"; }
         { path = "/Applications/Arc.app/"; }
