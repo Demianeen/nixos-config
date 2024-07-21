@@ -13,7 +13,6 @@ with pkgs; [
   fastfetch
   openssh
   sqlite
-	postgresql
   wget
   zip
 
@@ -60,7 +59,7 @@ with pkgs; [
   tree
   unrar
   unzip
-  zsh-powerlevel10k
+  nixfmt
 
   # Python packages
   python39
