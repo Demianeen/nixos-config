@@ -1,15 +1,18 @@
 { config, pkgs, lib, ... }: rec {
-  sessionPath = [
-    "$HOME/.pnpm-packages/bin"
-    "$HOME/.pnpm-packages"
-    "$HOME/.npm-packages/bin"
-    "$HOME/bin"
-    "$HOME/.local/share/bin"
-  ];
-  sessionVariables = {
-    EDITOR = "nvim -b";
-    VISITOR = sessionVariables.EDITOR;
-    ALTERNATE_EDITOR = "code";
+  home = {
+    sessionPath = [
+      "$HOME/.pnpm-packages/bin"
+      "$HOME/.pnpm-packages"
+      "$HOME/.npm-packages/bin"
+      "$HOME/bin"
+      "$HOME/.local/share/bin"
+    ];
+    sessionVariables = {
+      # FIXME: nvim is not found
+      EDITOR = "nvim -b";
+      VISITOR = home.sessionVariables.EDITOR;
+      ALTERNATE_EDITOR = "code";
+    };
   };
 
   programs.zsh = {
