@@ -16,6 +16,7 @@ in {
     ./modules/yabai.nix
     ./modules/postgresql.nix
     ./modules/sketchybar.nix
+    ./modules/borders.nix
   ];
 
   # It me
