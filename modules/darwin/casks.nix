@@ -13,12 +13,12 @@ _:
 
   # Utility Tools
   "syncthing"
-	"cleanmymac"
+  "cleanmymac"
 
   # Productivity Tools
   "raycast"
 
   # Browsers
-	"arc"
+  "arc"
   "google-chrome"
 ]

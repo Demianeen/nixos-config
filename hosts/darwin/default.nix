@@ -1,15 +1,15 @@
 { agenix, config, pkgs, ... }:
 
-let user = "demian"; in
+let user = "demian";
 
-{
+in {
 
   imports = [
     ../../modules/darwin/secrets.nix
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
     ../../modules/shared/cachix
-     agenix.darwinModules.default
+    agenix.darwinModules.default
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -23,7 +23,11 @@ let user = "demian"; in
     gc = {
       user = "root";
       automatic = true;
-      interval = { Weekday = 0; Hour = 2; Minute = 0; };
+      interval = {
+        Weekday = 0;
+        Hour = 2;
+        Minute = 0;
+      };
       options = "--delete-older-than 30d";
     };
 
@@ -37,10 +41,9 @@ let user = "demian"; in
   system.checks.verifyNixPath = false;
 
   # Load configuration that is shared across systems
-  environment.systemPackages = with pkgs; [
-    emacs-unstable
-    agenix.packages."${pkgs.system}".default
-  ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
+  environment.systemPackages = with pkgs;
+    [ emacs-unstable agenix.packages."${pkgs.system}".default ]
+    ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
   launchd.user.agents.emacs.path = [ config.environment.systemPath ];
   launchd.user.agents.emacs.serviceConfig = {
@@ -81,9 +84,7 @@ let user = "demian"; in
         tilesize = 48;
       };
 
-      finder = {
-        _FXShowPosixPathInTitle = false;
-      };
+      finder = { _FXShowPosixPathInTitle = false; };
 
       trackpad = {
         Clicking = true;

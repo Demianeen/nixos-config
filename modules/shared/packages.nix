@@ -2,8 +2,8 @@
 
 with pkgs; [
   # General packages for development and system management
-	wezterm
-	neovim
+  wezterm
+  neovim
   aspell
   aspellDicts.en
   bash-completion
@@ -33,29 +33,29 @@ with pkgs; [
   fd
   font-awesome
   hack-font
-	jetbrains-mono
+  jetbrains-mono
   noto-fonts
   noto-fonts-emoji
   meslo-lgs-nf
 
   # Node.js development tools
-	pnpm
+  pnpm
   nodePackages.npm
   nodePackages.prettier
   nodejs
 
   # Text and terminal utilities
-	tealdeer
-	difftastic
-	delta # TODO: rm me
-	yazi
+  tealdeer
+  difftastic
+  delta # TODO: rm me
+  yazi
   htop
   hunspell
   iftop
   jq
-	lazygit
+  lazygit
   ripgrep
-	bat
+  bat
   tree
   unrar
   unzip

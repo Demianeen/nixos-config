@@ -1,10 +1,8 @@
 { config, pkgs, agenix, secrets, ... }:
 
-let user = "demian"; in
-{
-  age.identityPaths = [
-    "/Users/${user}/.ssh/id_ed25519"
-  ];
+let user = "demian";
+in {
+  age.identityPaths = [ "/Users/${user}/.ssh/id_ed25519" ];
 
   # Your secrets go here
   #

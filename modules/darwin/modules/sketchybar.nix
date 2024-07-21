@@ -1,11 +1,5 @@
 { ... }:
 
 {
-	config = {
-    services = {
-      sketchybar = {
-				enable = true;
-			};
-		};
-	};
+  config = { services = { sketchybar = { enable = true; }; }; };
 }

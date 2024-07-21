@@ -1,8 +1,11 @@
 { config, inputs, pkgs, agenix, ... }:
 
-let user = "demian";
-    keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOk8iAnIaa1deoc7jw8YACPNVka1ZFJxhnU4G74TmS+p" ]; in
-{
+let
+  user = "demian";
+  keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOk8iAnIaa1deoc7jw8YACPNVka1ZFJxhnU4G74TmS+p"
+  ];
+in {
   imports = [
     ../../modules/nixos/secrets.nix
     ../../modules/nixos/disk-config.nix
@@ -20,7 +23,8 @@ let user = "demian";
       };
       efi.canTouchEfiVariables = true;
     };
-    initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+    initrd.availableKernelModules =
+      [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
     # Uncomment for AMD GPU
     # initrd.kernelModules = [ "amdgpu" ];
     kernelPackages = pkgs.linuxPackages_latest;
@@ -41,13 +45,14 @@ let user = "demian";
 
   # Turn on flag for proprietary software
   nix = {
-    nixPath = [ "nixos-config=/home/${user}/.local/share/src/nixos-config:/etc/nixos" ];
+    nixPath =
+      [ "nixos-config=/home/${user}/.local/share/src/nixos-config:/etc/nixos" ];
     settings.allowed-users = [ "${user}" ];
     package = pkgs.nix;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-   };
+  };
 
   # Manages keys and such
   programs = {
@@ -85,9 +90,7 @@ let user = "demian";
       };
 
       # Tiling window manager
-      windowManager.bspwm = {
-        enable = true;
-      };
+      windowManager.bspwm = { enable = true; };
 
       # Turn Caps Lock into Ctrl
       layout = "us";
@@ -114,7 +117,7 @@ let user = "demian";
       overrideDevices = true;
 
       settings = {
-        devices = {};
+        devices = { };
         options.globalAnnounceEnabled = false; # Only sync on LAN
       };
     };
@@ -143,13 +146,11 @@ let user = "demian";
         animation-for-menu-window = "none";
         animation-for-transient-window = "slide-down";
         corner-radius = 12;
-        rounded-corners-exclude = [
-          "class_i = 'polybar'"
-          "class_g = 'i3lock'"
-        ];
+        rounded-corners-exclude =
+          [ "class_i = 'polybar'" "class_g = 'i3lock'" ];
         round-borders = 3;
-        round-borders-exclude = [];
-        round-borders-rule = [];
+        round-borders-exclude = [ ];
+        round-borders-rule = [ ];
         shadow = true;
         shadow-radius = 8;
         shadow-opacity = 0.4;
@@ -160,8 +161,7 @@ let user = "demian";
         frame-opacity = 0.7;
         inactive-opacity-override = false;
         active-opacity = 1.0;
-        focus-exclude = [
-        ];
+        focus-exclude = [ ];
 
         opacity-rule = [
           "100:class_g = 'i3lock'"
@@ -180,13 +180,9 @@ let user = "demian";
           kern = "3x3box";
         };
 
-        shadow-exclude = [
-          "class_g = 'Dunst'"
-        ];
+        shadow-exclude = [ "class_g = 'Dunst'" ];
 
-        blur-background-exclude = [
-          "class_g = 'Dunst'"
-        ];
+        blur-background-exclude = [ "class_g = 'Dunst'" ];
 
         backend = "glx";
         vsync = false;
@@ -200,8 +196,17 @@ let user = "demian";
         log-level = "info";
 
         wintypes = {
-          normal = { fade = true; shadow = false; };
-          tooltip = { fade = true; shadow = false; opacity = 0.75; focus = true; full-shadow = false; };
+          normal = {
+            fade = true;
+            shadow = false;
+          };
+          tooltip = {
+            fade = true;
+            shadow = false;
+            opacity = 0.75;
+            focus = true;
+            full-shadow = false;
+          };
           dock = { shadow = false; };
           dnd = { shadow = false; };
           popup_menu = { opacity = 1.0; };
@@ -221,9 +226,7 @@ let user = "demian";
   };
 
   # When emacs builds from no cache, it exceeds the 90s timeout default
-  systemd.user.services.emacs = {
-    serviceConfig.TimeoutStartSec = "7min";
-  };
+  systemd.user.services.emacs = { serviceConfig.TimeoutStartSec = "7min"; };
 
   # Enable CUPS to print documents
   # services.printing.enable = true;
@@ -245,8 +248,7 @@ let user = "demian";
     ledger.enable = true;
   };
 
-
- # Add docker daemon
+  # Add docker daemon
   virtualisation.docker.enable = true;
   virtualisation.docker.logDriver = "json-file";
 
@@ -262,21 +264,17 @@ let user = "demian";
       openssh.authorizedKeys.keys = keys;
     };
 
-    root = {
-      openssh.authorizedKeys.keys = keys;
-    };
+    root = { openssh.authorizedKeys.keys = keys; };
   };
 
   # Don't require password for users in `wheel` group for these commands
   security.sudo = {
     enable = true;
     extraRules = [{
-      commands = [
-       {
-         command = "${pkgs.systemd}/bin/reboot";
-         options = [ "NOPASSWD" ];
-        }
-      ];
+      commands = [{
+        command = "${pkgs.systemd}/bin/reboot";
+        options = [ "NOPASSWD" ];
+      }];
       groups = [ "wheel" ];
     }];
   };

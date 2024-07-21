@@ -1,5 +1,5 @@
 {
-	programs.starship = {
+  programs.starship = {
     enable = true;
     settings = {
       palette = "catppuccin_frappe";

@@ -1,4 +1,5 @@
-self: super: with super; {
+self: super:
+with super; {
 
   feather-font = let
     version = "1.0";
@@ -7,7 +8,8 @@ self: super: with super; {
     name = "${pname}-${version}";
 
     src = fetchzip {
-      url = "https://github.com/dustinlyons/feather-font/archive/refs/tags/${version}.zip";
+      url =
+        "https://github.com/dustinlyons/feather-font/archive/refs/tags/${version}.zip";
       sha256 = "sha256-Zsz8/qn7XAG6BVp4XdqooEqioFRV7bLH0bQkHZvFbsg=";
     };
 
@@ -21,7 +23,8 @@ self: super: with super; {
 
     meta = with lib; {
       homepage = "https://www.feathericons.com/";
-      description = "Set of font icons from the open source collection Feather Icons";
+      description =
+        "Set of font icons from the open source collection Feather Icons";
       license = licenses.mit;
       maintainers = [ maintainers.dlyons ];
       platforms = [ platforms.x86_64-linux platforms.x86_64-darwin ];

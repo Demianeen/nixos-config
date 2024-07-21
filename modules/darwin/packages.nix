@@ -1,19 +1,19 @@
 { pkgs }:
 
 with pkgs;
-let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
-shared-packages ++ [
-		darwin.trash
+let shared-packages = import ../shared/packages.nix { inherit pkgs; };
+in shared-packages ++ [
+  darwin.trash
 
-		# system
-		dockutil
+  # system
+  dockutil
 
-		# navigation
-		yabai
-		skhd
+  # navigation
+  yabai
+  skhd
 
-		# ui
-		sketchybar
-		sketchybar-app-font
-		jankyborders
+  # ui
+  sketchybar
+  sketchybar-app-font
+  jankyborders
 ]
