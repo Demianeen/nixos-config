@@ -40,7 +40,6 @@ let user = "demian"; in
   environment.systemPackages = with pkgs; [
     emacs-unstable
     agenix.packages."${pkgs.system}".default
-		nixfmt-rfc-style
   ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
   launchd.user.agents.emacs.path = [ config.environment.systemPath ];
