@@ -77,7 +77,6 @@ in
 
         stateVersion = "23.11";
       };
-      programs = {} // import ../shared/home-manager.nix { inherit config pkgs lib; };
 			editorconfig = {
 				enable = true;
 				settings = {
@@ -97,6 +96,7 @@ in
       # https://github.com/nix-community/home-manager/issues/3344
       manual.manpages.enable = false;
     };
+      } // import ../shared/home-manager.nix { inherit config pkgs lib; };
   };
 
   # Fully declarative dock using the latest from Nix Store

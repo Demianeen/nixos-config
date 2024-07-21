@@ -1,4 +1,9 @@
-local wezterm = require("modules.shared.weztermm.wezterm")
+{
+	programs.wezterm = {
+		enable = true;
+		# extraConfig = builtins.readFile ./wezterm/wezterm.lua;
+		extraConfig = ''
+local wezterm = require("wezterm")
 local mux = wezterm.mux
 local act = wezterm.action
 
@@ -57,4 +62,7 @@ return {
 			action = wezterm.action.DisableDefaultAssignment,
 		},
 	},
+}
+		'';
+	};
 }
