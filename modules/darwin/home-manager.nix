@@ -15,7 +15,7 @@ in {
     ./modules/skhd.nix
     ./modules/yabai.nix
     ./modules/postgresql.nix
-    ./modules/sketchybar.nix
+    ./modules/sketchybar/sketchybar.nix
     ./modules/borders.nix
   ];
 
