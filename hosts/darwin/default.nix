@@ -77,11 +77,11 @@ in {
       };
 
       dock = {
-        autohide = false;
+        autohide = true;
         show-recents = false;
         launchanim = true;
         orientation = "bottom";
-        tilesize = 48;
+        tilesize = 56;
       };
 
       finder = { _FXShowPosixPathInTitle = false; };

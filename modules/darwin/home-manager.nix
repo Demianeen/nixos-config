@@ -76,7 +76,7 @@ in {
   # Fully declarative dock using the latest from Nix Store
   local = {
     dock = {
-      enable = false;
+      enable = true;
       entries = [
         { path = "/Applications/Spotify.app/"; }
         { path = "/Applications/Things3.app/"; }
@@ -85,14 +85,9 @@ in {
         { path = "/Applications/Telegram.app/"; }
         { path = "/Applications/Arc.app/"; }
         {
-          path = "${config.users.users.${user}.home}/.local/share/";
-          section = "others";
-          options = "--sort name --view grid --display folder";
-        }
-        {
           path = "${config.users.users.${user}.home}/Downloads";
           section = "others";
-          options = "--sort name --view grid --display stack";
+          options = "--sort dateAdded --view fan --display stack";
         }
       ];
     };
