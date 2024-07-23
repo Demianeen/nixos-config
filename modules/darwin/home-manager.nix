@@ -87,7 +87,7 @@ in {
         {
           path = "${config.users.users.${user}.home}/Downloads";
           section = "others";
-          options = "--sort dateAdded --view fan --display stack";
+          options = "--sort dateadded --view fan --display stack";
         }
       ];
     };
