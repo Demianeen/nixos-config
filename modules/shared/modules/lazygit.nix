@@ -14,13 +14,8 @@
         showCommandLog = false;
       };
       git = {
-        branchLogCmd =
-          "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --";
-        paging = {
-          externalDiffCommand = "difft --color=always --display=side-by-side";
-          colorArg = "always";
-          pager = "diff-so-fancy";
-        };
+        branchLogCmd = "git lg {{branchName}}";
+        paging = { externalDiffCommand = "difft"; };
       };
       customCommands = [
         {
@@ -72,12 +67,6 @@
           command = "git flow {{.Form.BranchType}} start {{.Form.BranchName}}";
           description = "run gitflow";
           loadingText = "creating branch...";
-        }
-        {
-          key = "<c-b>";
-          context = "commits";
-          command = ''hub browse -- "commit/{{.SelectedLocalCommit.Sha}}"'';
-          description = "Open commit in browser";
         }
       ];
     };
