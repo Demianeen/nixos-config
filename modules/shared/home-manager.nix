@@ -5,6 +5,7 @@
   imports = [
     ./modules/editor-config.nix
     ./modules/fzf.nix
+    ./modules/gh.nix
     ./modules/git.nix
     ./modules/go.nix
     ./modules/lazygit.nix
