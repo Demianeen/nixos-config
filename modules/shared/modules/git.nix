@@ -15,9 +15,13 @@ in {
         editor = "nvim";
         autocrlf = "input";
       };
-      commit.gpgsign = true;
       pull.rebase = true;
       rebase.autoStash = true;
+      # commit signing
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      "gpg \"ssh\"".program =
+        "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
     };
   };
 }

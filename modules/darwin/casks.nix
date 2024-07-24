@@ -14,6 +14,7 @@ _:
   # Utility Tools
   "syncthing"
   "cleanmymac"
+  "1password"
 
   # Productivity Tools
   "raycast"

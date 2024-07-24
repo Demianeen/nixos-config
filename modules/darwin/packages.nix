@@ -16,4 +16,8 @@ in shared-packages ++ [
   sketchybar
   sketchybar-app-font
   jankyborders
+
+  # password manager
+  _1password
+  _1password-gui
 ]
