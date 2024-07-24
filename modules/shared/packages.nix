@@ -53,13 +53,11 @@ with pkgs; [
   # Text and terminal utilities
   tealdeer
   difftastic
-  delta # TODO: rm me
   yazi
   htop
   hunspell
   iftop
   jq
-  lazygit
   ripgrep
   bat
   tree

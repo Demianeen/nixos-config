@@ -7,6 +7,7 @@
     ./modules/fzf.nix
     ./modules/git.nix
     ./modules/go.nix
+    ./modules/lazygit.nix
     ./modules/ssh.nix
     ./modules/starship.nix
     ./modules/wezterm.nix
