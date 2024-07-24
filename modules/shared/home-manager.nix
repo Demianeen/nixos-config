@@ -1,6 +1,5 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, catppuccin, ... }:
 
-# TODO: nixfmt
 # TODO: difft
 {
   imports = [
@@ -12,7 +11,13 @@
     ./modules/starship.nix
     ./modules/wezterm.nix
     ./modules/zsh.nix
+    catppuccin.homeManagerModules.catppuccin
   ];
+  catppuccin = {
+    flavor = "frappe";
+    enable = true;
+  };
+
   programs = {
     zoxide.enable = true;
     eza.enable = true;

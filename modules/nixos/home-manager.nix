@@ -1,10 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, catppuccin, ... }:
 
 let
   user = "demian";
   xdg_configHome = "/home/${user}/.config";
   shared-programs =
-    import ../shared/home-manager.nix { inherit config pkgs lib; };
+    import ../shared/home-manager.nix { inherit config pkgs lib catppuccin; };
   shared-files = import ../shared/files.nix { inherit config pkgs; };
 
   polybar-user_modules = builtins.readFile (pkgs.substituteAll {

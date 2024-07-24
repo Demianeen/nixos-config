@@ -1,4 +1,4 @@
-{ config, pkgs, lib, home-manager, ... }:
+{ config, pkgs, lib, home-manager, catppuccin, ... }:
 
 let
   user = "demian";
@@ -70,7 +70,9 @@ in {
           ];
           stateVersion = "23.11";
         };
-      } // import ../shared/home-manager.nix { inherit config pkgs lib; };
+      } // import ../shared/home-manager.nix {
+        inherit config pkgs lib catppuccin;
+      };
   };
 
   # Fully declarative dock using the latest from Nix Store

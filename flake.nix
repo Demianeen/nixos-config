@@ -4,6 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
+    catppuccin.url = "github:catppuccin/nix";
     darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +32,8 @@
     };
   };
   outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core
-    , homebrew-cask, home-manager, nixpkgs, disko, agenix, secrets }@inputs:
+    , homebrew-cask, home-manager, nixpkgs, disko, agenix, secrets, catppuccin
+    }@inputs:
     let
       user = "demian";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -41,7 +43,7 @@
         let pkgs = nixpkgs.legacyPackages.${system};
         in {
           default = with pkgs;
-            mkShell {
+            mkehell {
               nativeBuildInputs = with pkgs; [ bashInteractive git age ];
               shellHook = with pkgs; ''
                 export EDITOR=vim
@@ -112,6 +114,7 @@
           specialArgs = inputs;
           modules = [
             disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
               home-manager = {
