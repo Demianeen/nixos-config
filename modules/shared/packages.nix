@@ -24,7 +24,13 @@ with pkgs; [
 
   # Cloud-related tools and SDKs
   docker
-  docker-compose
+  k9s
+  (pkgs.google-cloud-sdk.withExtraComponents
+    (with pkgs.google-cloud-sdk.components; [
+      gke-gcloud-auth-plugin
+      kubectl
+      minikube
+    ]))
 
   # Media-related packages
   emacs-all-the-icons-fonts
@@ -60,8 +66,9 @@ with pkgs; [
   unrar
   unzip
   nixfmt
+  tokei
 
   # Python packages
   python39
-  python39Packages.virtualenv # globally install virtualenv
+  python39Packages.virtualenv
 ]
