@@ -87,7 +87,7 @@ in {
       finder = { _FXShowPosixPathInTitle = false; };
 
       trackpad = {
-        Clicking = true;
+        Clicking = false;
         TrackpadThreeFingerDrag = true;
       };
     };
