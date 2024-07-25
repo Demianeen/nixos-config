@@ -35,6 +35,11 @@
       # }
     ];
 
+    zplug = {
+      enable = true;
+      plugins = [{ name = "Leizhenpeng/zsh-plugin-pnpm"; }];
+    };
+
     shellAliases = {
       # zshrc="ce ~/.zshrc";
       # lazyvimjson="ce ~/.config/nvim/lazyvim.json";
