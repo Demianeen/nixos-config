@@ -1,6 +1,10 @@
 { pkgs, lib, ... }: {
   programs.fzf = {
     enable = true;
+    defaultOptions = [
+      # keybindings similar to telescope
+      ''--bind="ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up"''
+    ];
     defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
 
     # Command for the CTRL-T file widget
