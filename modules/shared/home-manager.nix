@@ -3,6 +3,7 @@
 # TODO: difft
 {
   imports = [
+    ./modules/atuin.nix
     ./modules/editor-config.nix
     ./modules/fzf.nix
     ./modules/gh.nix
