@@ -9,6 +9,7 @@
     ./modules/gh.nix
     ./modules/git.nix
     ./modules/go.nix
+    ./modules/jq.nix
     ./modules/lazygit.nix
     ./modules/ssh.nix
     ./modules/starship.nix
@@ -18,6 +19,7 @@
     ./modules/zsh.nix
     catppuccin.homeManagerModules.catppuccin
   ];
+
   catppuccin = {
     flavor = "frappe";
     enable = true;
