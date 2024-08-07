@@ -20,5 +20,4 @@ in shared-packages ++ [
 
   # password manager
   _1password
-  _1password-gui
 ]
