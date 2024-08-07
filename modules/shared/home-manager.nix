@@ -11,6 +11,7 @@
     ./modules/lazygit.nix
     ./modules/ssh.nix
     ./modules/starship.nix
+    ./modules/tealdeer.nix
     ./modules/wezterm.nix
     ./modules/yazi.nix
     ./modules/zsh.nix

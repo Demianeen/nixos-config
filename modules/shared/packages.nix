@@ -51,7 +51,6 @@ with pkgs; [
   nodejs
 
   # Text and terminal utilities
-  tealdeer
   difftastic
   yazi
   htop
