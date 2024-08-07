@@ -45,7 +45,6 @@ with pkgs; [
 
   # Text and terminal utilities
   difftastic
-  yazi
   htop
   hunspell
   iftop
@@ -57,6 +56,11 @@ with pkgs; [
   unzip
   nixfmt-classic
   tokei
+  fh
+  lazydocker
+
+  # rust
+  rustup
 
   # Node.js development tools
   pnpm
