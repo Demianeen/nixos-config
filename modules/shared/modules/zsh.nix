@@ -46,8 +46,11 @@
       # ohmyzsh="$EDITOR ~/.oh-my-zsh";
       # zsh-plugins="~/.oh-my-zsh/custom/plugins";
       v = "nvim -b";
+      nvim = "nvim -b";
       n = "pnpm nx";
+      nx = "pnpm nx";
       nl = "n lint";
+      cat = "bat";
       y = "pbcopy";
       su = "softwareupdate";
       opf = "op-fuzzy";
