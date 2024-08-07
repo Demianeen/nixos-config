@@ -61,7 +61,7 @@ with pkgs; [
   tree
   unrar
   unzip
-  nixfmt
+  nixfmt-classic
   tokei
 
   # Python packages
