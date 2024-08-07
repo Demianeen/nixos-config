@@ -43,12 +43,6 @@ with pkgs; [
   noto-fonts-emoji
   meslo-lgs-nf
 
-  # Node.js development tools
-  pnpm
-  nodePackages.npm
-  nodePackages.prettier
-  nodejs
-
   # Text and terminal utilities
   difftastic
   yazi
@@ -63,6 +57,12 @@ with pkgs; [
   unzip
   nixfmt-classic
   tokei
+
+  # Node.js development tools
+  pnpm
+  nodePackages.npm
+  nodePackages.prettier
+  nodejs
 
   # Python packages
   python39
