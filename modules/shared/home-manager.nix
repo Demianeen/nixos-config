@@ -10,6 +10,7 @@
     ./modules/git.nix
     ./modules/go.nix
     ./modules/jq.nix
+    ./modules/jqp.nix
     ./modules/lazygit.nix
     ./modules/ssh.nix
     ./modules/starship.nix
@@ -31,5 +32,8 @@
     fd.enable = true;
     bat.enable = true;
     direnv.enable = true;
+
+    jqp.enable = true;
+    jqp.config = { theme.name = "catppuccin-frappe"; };
   };
 }
