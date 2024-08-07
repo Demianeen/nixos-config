@@ -23,7 +23,6 @@ with pkgs; [
   libfido2
 
   # Cloud-related tools and SDKs
-  docker
   k9s
   (pkgs.google-cloud-sdk.withExtraComponents
     (with pkgs.google-cloud-sdk.components; [

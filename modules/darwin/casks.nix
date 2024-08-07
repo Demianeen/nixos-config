@@ -2,7 +2,7 @@ _:
 
 [
   # Development Tools
-  "homebrew/cask/docker"
+  "docker"
   "visual-studio-code"
 
   # Communication Tools
