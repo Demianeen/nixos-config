@@ -44,6 +44,7 @@ with pkgs; [
   meslo-lgs-nf
 
   # Text and terminal utilities
+  manix
   difftastic
   htop
   hunspell
@@ -58,6 +59,8 @@ with pkgs; [
   tokei
   fh
   lazydocker
+  cmatrix
+  sd
 
   # rust
   rustup
