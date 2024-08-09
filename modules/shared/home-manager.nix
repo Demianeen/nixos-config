@@ -4,6 +4,7 @@
 {
   imports = [
     ./modules/atuin.nix
+    ./modules/direnv.nix
     ./modules/editor-config.nix
     ./modules/fzf.nix
     ./modules/gh.nix
@@ -31,7 +32,6 @@
     eza.enable = true;
     fd.enable = true;
     bat.enable = true;
-    direnv.enable = true;
 
     jqp.enable = true;
     jqp.config = { theme.name = "catppuccin-frappe"; };
