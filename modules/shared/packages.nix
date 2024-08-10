@@ -2,7 +2,6 @@
 
 with pkgs; [
   # General packages for development and system management
-  wezterm
   neovim
   aspell
   aspellDicts.en
@@ -49,7 +48,6 @@ with pkgs; [
   htop
   hunspell
   iftop
-  jq
   ripgrep
   bat
   tree
@@ -61,6 +59,13 @@ with pkgs; [
   lazydocker
   cmatrix
   sd
+  yq
+  # xq-xml
+  entr
+  rsync
+
+  # tui
+  sshs
 
   # rust
   rustup
