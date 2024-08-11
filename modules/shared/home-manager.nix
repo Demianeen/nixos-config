@@ -19,7 +19,6 @@
     ./modules/wezterm.nix
     ./modules/yazi.nix
     ./modules/zsh.nix
-    catppuccin.homeManagerModules.catppuccin
   ];
 
   catppuccin = {

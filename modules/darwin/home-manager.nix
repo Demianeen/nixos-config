@@ -57,22 +57,23 @@ in {
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
-    users.${user} = { pkgs, config, lib, ... }:
-      {
-        home = {
-          enableNixpkgsReleaseCheck = false;
+    users.${user} = { pkgs, config, lib, ... }: {
+      imports =
+        [ ../shared/home-manager.nix catppuccin.homeManagerModules.catppuccin ];
+      home = {
+        enableNixpkgsReleaseCheck = false;
 
-          packages = pkgs.callPackage ./packages.nix { };
-          file = lib.mkMerge [
-            sharedFiles
-            additionalFiles
-            { "emacs-launcher.command".source = myEmacsLauncher; }
-          ];
-          stateVersion = "23.11";
-        };
-      } // import ../shared/home-manager.nix {
-        inherit config pkgs lib catppuccin;
+        packages = pkgs.callPackage ./packages.nix { };
+        file = lib.mkMerge [
+          sharedFiles
+          additionalFiles
+          { "emacs-launcher.command".source = myEmacsLauncher; }
+        ];
+        stateVersion = "23.11";
       };
+      # disable Home Manager's man in favor of Nix-Darwin's
+      programs.man.enable = false;
+    };
   };
 
   # Fully declarative dock using the latest from Nix Store
