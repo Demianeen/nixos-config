@@ -1,9 +1,9 @@
 { config, pkgs, lib, catppuccin, ... }:
 
-# TODO: difft
 {
   imports = [
     ./modules/atuin.nix
+    ./modules/bat.nix
     ./modules/direnv.nix
     ./modules/editor-config.nix
     ./modules/fzf.nix
@@ -31,7 +31,6 @@
     zoxide.enable = true;
     eza.enable = true;
     fd.enable = true;
-    bat.enable = true;
 
     jqp.enable = true;
     jqp.config = { theme.name = "catppuccin-frappe"; };

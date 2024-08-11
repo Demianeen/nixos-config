@@ -49,7 +49,6 @@ with pkgs; [
   hunspell
   iftop
   ripgrep
-  bat
   tree
   unrar
   unzip
