@@ -23,6 +23,16 @@
     syntaxHighlighting.enable = true;
     cdpath = [ "~/.local/share/src" ];
     plugins = [
+      {
+        name = "zsh-plugin-pnpm";
+        src = pkgs.fetchFromGitHub {
+          owner = "Leizhenpeng";
+          repo = "zsh-plugin-pnpm";
+          rev = "master";
+          sha256 = "vpOiEhnsntg6GwOg2wvcRX3fV2NDl3nKuXEhn06l1m8=";
+        };
+        file = "pnpm.plugin.zsh";
+      }
       # {
       #     name = "powerlevel10k";
       #     src = pkgs.zsh-powerlevel10k;
@@ -35,22 +45,12 @@
       # }
     ];
 
-    zplug = {
-      enable = true;
-      plugins = [{ name = "Leizhenpeng/zsh-plugin-pnpm"; }];
-    };
-
     shellAliases = {
-      # zshrc="ce ~/.zshrc";
-      # lazyvimjson="ce ~/.config/nvim/lazyvim.json";
-      # ohmyzsh="$EDITOR ~/.oh-my-zsh";
-      # zsh-plugins="~/.oh-my-zsh/custom/plugins";
       v = "nvim -b";
       nvim = "nvim -b";
       n = "pnpm nx";
       nx = "pnpm nx";
       nl = "n lint";
-      cat = "bat";
       y = "pbcopy";
       su = "softwareupdate";
       opf = "op-fuzzy";
