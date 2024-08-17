@@ -8,10 +8,14 @@
       "$HOME/.local/share/bin"
     ];
     sessionVariables = {
-      # FIXME: nvim is not found
-      EDITOR = "nvim -b";
+      # default editor
+      EDITOR = "${lib.getBin pkgs.neovim}/bin/nvim";
       VISITOR = home.sessionVariables.EDITOR;
       ALTERNATE_EDITOR = "code";
+
+      # zsh vi mode
+      ZVM_VI_HIGHLIGHT_FOREGROUND = "black";
+      ZVM_VI_HIGHLIGHT_BACKGROUND = "magenta";
     };
   };
 
@@ -32,6 +36,11 @@
           sha256 = "vpOiEhnsntg6GwOg2wvcRX3fV2NDl3nKuXEhn06l1m8=";
         };
         file = "pnpm.plugin.zsh";
+      }
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
       # {
       #     name = "powerlevel10k";
