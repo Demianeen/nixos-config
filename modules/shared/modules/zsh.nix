@@ -55,8 +55,8 @@
     ];
 
     shellAliases = {
-      v = "nvim -b";
-      nvim = "nvim -b";
+      v = "$EDITOR -b";
+      nvim = "$EDITOR -b";
       n = "pnpm nx";
       nx = "pnpm nx";
       nl = "n lint";
@@ -84,9 +84,6 @@
       export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
       export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
       export PATH=$HOME/.local/share/bin:$PATH
-
-      # Remove history data we don't want to see
-      export HISTIGNORE="pwd:ls:cd"
 
       # nix shortcuts
       shell() {
