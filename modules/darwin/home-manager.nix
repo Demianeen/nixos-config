@@ -1,4 +1,4 @@
-{ config, pkgs, lib, home-manager, catppuccin, ... }:
+{ config, pkgs, catppuccin, ... }:
 
 let
   user = "demian";
@@ -19,7 +19,6 @@ in {
     ./modules/borders.nix
   ];
 
-  # It me
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";
@@ -30,10 +29,12 @@ in {
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix { };
+    # taps = builtins.attrNames config.nix-homebrew.taps;
     global = { autoUpdate = true; };
     onActivation = {
       autoUpdate = true;
-      cleanup = "uninstall";
+      # FIXME: error on casks uninstall
+      # cleanup = "uninstall";
     };
 
     # These app IDs are from using the mas CLI app
