@@ -1,1 +1,8 @@
-{ programs.yazi = { enable = true; }; }
+{ pkgs, ... }:
+
+{
+  programs.yazi = {
+    enable = true;
+    package = pkgs.yazi;
+  };
+}
