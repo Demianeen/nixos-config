@@ -43,8 +43,8 @@ with pkgs; [
   meslo-lgs-nf
 
   # Text and terminal utilities
-  manix
   difftastic
+  delta
   htop
   hunspell
   iftop
@@ -62,9 +62,11 @@ with pkgs; [
   # xq-xml
   entr
   rsync
+  speedtest-cli
 
   # tui
   sshs
+  discordo
 
   # rust
   rustup
