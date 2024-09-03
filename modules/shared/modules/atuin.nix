@@ -7,7 +7,6 @@
 
       style = "compact";
       enter_accept = true;
-      ctrl_n_shortcuts = true; # use ctrl instead of alt because of MacOS
 
       # sync
       auto_sync = true;
