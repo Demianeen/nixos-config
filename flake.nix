@@ -45,9 +45,6 @@
           default = with pkgs;
             mkehell {
               nativeBuildInputs = with pkgs; [ bashInteractive git age ];
-              shellHook = with pkgs; ''
-                export EDITOR=vim
-              '';
             };
         };
       mkApp = scriptName: system: {
