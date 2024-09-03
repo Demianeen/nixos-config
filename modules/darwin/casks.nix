@@ -4,6 +4,10 @@ _:
   # Development Tools
   "docker"
   "visual-studio-code"
+  "figma"
+  "chatgpt"
+  "ticktick"
+  "cursor"
 
   # Communication Tools
   "discord"
@@ -15,6 +19,7 @@ _:
   "syncthing"
   "cleanmymac"
   "1password"
+  "utm"
 
   # Productivity Tools
   "raycast"
