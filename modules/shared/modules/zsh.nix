@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: rec {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+rec {
   home = {
     sessionPath = [
       "$HOME/.pnpm-packages/bin"
@@ -74,21 +80,35 @@
       search = "rg -p --glob '!node_modules/*'  $@";
     };
 
-    initExtraFirst = ''
-      if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-        . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-      fi
+    initExtraFirst = # bash
+      ''
+        if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+        fi
 
-      # Define variables for directories
-      export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
-      export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
-      export PATH=$HOME/.local/share/bin:$PATH
+        # Define variables for directories
+        export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
+        export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
+        export PATH=$HOME/.local/share/bin:$PATH
 
-      # nix shortcuts
-      shell() {
-          nix-shell '<nixpkgs>' -A "$1"
-      }
-    '';
+        # nix shortcuts
+        shell() {
+            nix-shell '<nixpkgs>' -A "$1"
+        }
+
+        function nvim_plugins_update() {
+          echo "[nvim] updating lazy plugins..."
+          command nvim --headless "+Lazy! update" +qa
+          echo "[nvim] lazy plugins updated..."
+
+          CURRENT_DIR=$(pwd)
+          cd ~/.config/nvim
+          git restore --staged .
+          git add ./lazy-lock.json
+          git commit -m "chore(lazy): bump versions"
+          cd $CURRENT_DIR
+        }
+      '';
   };
 }
