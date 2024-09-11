@@ -1,4 +1,10 @@
-{ config, pkgs, lib, catppuccin, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  catppuccin,
+  ...
+}:
 
 {
   imports = [
@@ -10,6 +16,7 @@
     ./modules/gh.nix
     ./modules/git.nix
     ./modules/go.nix
+    ./modules/java.nix
     ./modules/jq.nix
     ./modules/jqp.nix
     ./modules/lazygit.nix
@@ -32,6 +39,8 @@
     fd.enable = true;
 
     jqp.enable = true;
-    jqp.config = { theme.name = "catppuccin-frappe"; };
+    jqp.config = {
+      theme.name = "catppuccin-frappe";
+    };
   };
 }
