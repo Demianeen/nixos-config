@@ -15,6 +15,7 @@ with pkgs; [
   wget
   zip
   postgresql
+  pgcli
 
   # Encryption and security tools
   age

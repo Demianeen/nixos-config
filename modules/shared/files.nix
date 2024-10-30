@@ -13,4 +13,8 @@
   ".emacs.d/init.el" = {
     text = builtins.readFile ../shared/config/emacs/init.el;
   };
+
+  ".config/pgcli/config" = {
+    text = builtins.readFile ../shared/config/pgcli/config.ini;
+  };
 }
