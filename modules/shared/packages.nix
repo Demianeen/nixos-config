@@ -1,19 +1,21 @@
 { pkgs }:
 
-with pkgs; [
+with pkgs;
+[
   # General packages for development and system management
   neovim
+  neovim-remote
   aspell
   aspellDicts.en
   bash-completion
   btop
-  coreutils
+  coreutils-full
   killall
   fastfetch
   openssh
-  sqlite
   wget
   zip
+  mpv
   postgresql
   pgcli
 
@@ -25,12 +27,14 @@ with pkgs; [
 
   # Cloud-related tools and SDKs
   k9s
-  (pkgs.google-cloud-sdk.withExtraComponents
-    (with pkgs.google-cloud-sdk.components; [
+  (pkgs.google-cloud-sdk.withExtraComponents (
+    with pkgs.google-cloud-sdk.components;
+    [
       gke-gcloud-auth-plugin
       kubectl
       minikube
-    ]))
+    ]
+  ))
 
   # Media-related packages
   emacs-all-the-icons-fonts
@@ -54,12 +58,13 @@ with pkgs; [
   tree
   unrar
   unzip
-  nixfmt-classic
+  nixfmt-rfc-style
   tokei
   fh
   lazydocker
   cmatrix
   sd
+  jq
   yq
   # xq-xml
   entr
@@ -83,6 +88,14 @@ with pkgs; [
   nodejs
 
   # Python packages
-  python39
-  python39Packages.virtualenv
+  python312
+  python312Packages.virtualenv
+  poetry
+
+  # TODO: This is just for rest.nvim luarocks package. It is better to isolate it with nvim
+  (pkgs.lua5_1.withPackages (
+    ps: with ps; [
+      luarocks
+    ]
+  ))
 ]
