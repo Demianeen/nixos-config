@@ -31,75 +31,76 @@
           right_padding = 4;
           window_gap = 8;
         };
-        extraConfig = ''
-          yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-          yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
-          yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
-          yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+        extraConfig = # bash
+          ''
+            yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+            yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+            yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+            yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
-          # -- Space preparing ---------------------------------------------------------------------------------------------------
+            # -- Space preparing ---------------------------------------------------------------------------------------------------
 
-          function space_destroy_amount {
-          	for idx in $(yabai -m query --spaces | jq ".[].index | select(. > $1)" | sort -nr); do
-          		yabai -m space --destroy "$idx"
-          	done
-          }
+            function space_destroy_amount {
+            	for idx in $(yabai -m query --spaces | jq ".[].index | select(. > $1)" | sort -nr); do
+            		yabai -m space --destroy "$idx"
+            	done
+            }
 
-          function space_create {
-          	local display=$(display_index_get $1)
-          	local idx=$2
-          	local name=$3
-          	local space=$(yabai -m query --spaces | jq "first(.[] | select(.index == $idx) | .index)")
+            function space_create {
+            	local display=$(display_index_get $1)
+            	local idx=$2
+            	local name=$3
+            	local space=$(yabai -m query --spaces | jq "first(.[] | select(.index == $idx) | .index)")
 
-          	if [ -z "$space" ]; then
-          		yabai -m space --create
-          	fi
+            	if [ -z "$space" ]; then
+            		yabai -m space --create
+            	fi
 
-          	yabai -m space "$idx" --label "$name" --display "$display"
-          }
+            	yabai -m space "$idx" --label "$name" --display "$display"
+            }
 
-          space_destroy_amount 10
+            space_destroy_amount 10
 
-          space_create 1 1 term
-          space_create 1 2 social
-          space_create 1 3 tasks
-          space_create 1 4 chatgpt
-          space_create 1 5 design
-          space_create 1 6 documents
-          space_create 1 7 calls
-          space_create 1 8 email
-          space_create 2 9 browser
+            space_create 1 1 term
+            space_create 1 2 social
+            space_create 1 3 tasks
+            space_create 1 4 chatgpt
+            space_create 1 5 design
+            space_create 1 6 documents
+            space_create 1 7 calls
+            space_create 1 8 email
+            space_create 2 9 browser
 
-          yabai -m rule --add space=term app="^(WezTerm|VSCode|Simulator)$"
-          yabai -m rule --add space=browser app="^(Arc)$"
-          yabai -m rule --add space=social app="^(Telegram|Toggl Track)$"
-          yabai -m rule --add space=tasks app="^(Things|Notion Calendar|Amie)$"
-          yabai -m rule --add space=chatgpt app="^(ChatGPT)$"
-          yabai -m rule --add space=documents app="^(Microsoft Word|Microsoft Excel|Microsoft PowerPoint|Acrobat)$"
-          yabai -m rule --add space=design app="^(Figma|Miro)$"
-          yabai -m rule --add space=calls app="^(zoom.us|Teams)$"
-          yabai -m rule --add space=email app="^(Mail|Microsoft Outlook)$"
+            yabai -m rule --add space=term app="^(WezTerm|VSCode|Simulator)$"
+            yabai -m rule --add space=browser app="^(Arc)$"
+            yabai -m rule --add space=social app="^(Telegram|Toggl Track)$"
+            yabai -m rule --add space=tasks app="^(Things|Notion Calendar|Amie)$"
+            yabai -m rule --add space=chatgpt app="^(ChatGPT)$"
+            yabai -m rule --add space=documents app="^(Microsoft Word|Microsoft Excel|Microsoft PowerPoint|Acrobat)$"
+            yabai -m rule --add space=design app="^(Figma|Miro)$"
+            yabai -m rule --add space=calls app="^(zoom.us|Teams)$"
+            yabai -m rule --add space=email app="^(Mail|Microsoft Outlook)$"
 
-          # resizes simulators on yabai restart
-          ~/.config/yabai/scripts/allSimulatorsToDefaultSize.sh
+            # resizes simulators on yabai restart
+            ~/.config/yabai/scripts/allSimulatorsToDefaultSize.sh
 
-          # disable specific apps
-          yabai -m rule --add app="^Pika$" manage=off
-          yabai -m rule --add app="^Calculator$" manage=off
-          yabai -m rule --add app="^Karabiner-Elements$" manage=off
-          yabai -m rule --add app="^1Password$" manage=off
-          yabai -m rule --add app="^Spotify$" manage=off
-          yabai -m rule --add app="^Bartender 5$" manage=off
-          yabai -m rule --add app="^Finder$" manage=off
-          yabai -m rule --add app="^Hazel$" manage=off
-          yabai -m rule --add app="^CleanMyMac X$" manage=off
-          yabai -m rule --add app="^Outlook$" manage=off
-          yabai -m rule --add app="^Simulator$" manage=on
-          yabai -m rule --add app="CleanShot X" manage=off mouse_follows_focus=off
+            # disable specific apps
+            yabai -m rule --add app="^Pika$" manage=off
+            yabai -m rule --add app="^Calculator$" manage=off
+            yabai -m rule --add app="^Karabiner-Elements$" manage=off
+            yabai -m rule --add app="^1Password$" manage=off
+            yabai -m rule --add app="^Spotify$" manage=off
+            yabai -m rule --add app="^Bartender 5$" manage=off
+            yabai -m rule --add app="^Finder$" manage=off
+            yabai -m rule --add app="^Hazel$" manage=off
+            yabai -m rule --add app="^CleanMyMac X$" manage=off
+            yabai -m rule --add app="^Outlook$" manage=off
+            yabai -m rule --add app="^Simulator$" manage=on
+            yabai -m rule --add app="CleanShot X" manage=off mouse_follows_focus=off
 
-          # apply all yabai rules on yabai start to all apps
-          yabai -m rule --apply
-        '';
+            # apply all yabai rules on yabai start to all apps
+            yabai -m rule --apply
+          '';
       };
     };
   };
