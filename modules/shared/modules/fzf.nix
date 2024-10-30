@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   programs.fzf = {
     enable = true;
     defaultOptions = [
@@ -17,13 +18,6 @@
 
     # Command for the ALT-C directory widget
     changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
-    changeDirWidgetOptions =
-      [ "--preview '${pkgs.eza}/bin/exa --tree --level=1 --color=always {}'" ];
-  };
-  programs.zsh = {
-    initExtra = ''
-      # macos keymaps
-      bindkey "ç" fzf-cd-widget # option+c
-    '';
+    changeDirWidgetOptions = [ "--preview '${pkgs.eza}/bin/exa --tree --level=1 --color=always {}'" ];
   };
 }
