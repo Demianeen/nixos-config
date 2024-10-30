@@ -22,6 +22,11 @@ rec {
       # zsh vi mode
       ZVM_VI_HIGHLIGHT_FOREGROUND = "black";
       ZVM_VI_HIGHLIGHT_BACKGROUND = "magenta";
+
+      # TODO: nvim
+      SQLITE_LIB_PATH = "${pkgs.sqlite.out}/lib/libsqlite3.${
+        if pkgs.stdenv.isDarwin then "dylib" else "so"
+      }";
     };
   };
 
