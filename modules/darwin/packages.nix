@@ -4,7 +4,6 @@ with pkgs;
 let shared-packages = import ../shared/packages.nix { inherit pkgs; };
 in shared-packages ++ [
   darwin.trash
-  postgresql_15
 
   # system
   dockutil

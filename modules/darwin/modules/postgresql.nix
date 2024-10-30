@@ -1,20 +1,28 @@
 { pkgs, config, ... }:
 
-let user = "demian";
-in {
+let
+  user = "demian";
+  dataDir = "/var/lib/postgresql";
+in
+{
   services = {
     postgresql = {
       enable = true;
-      package = pkgs.postgresql_15;
-      settings = { log_connections = true; };
+      package = pkgs.postgresql;
+      dataDir = dataDir;
+      settings = {
+        log_connections = true;
+      };
       initdbArgs = [
         "-U ${user}"
-        "--pgdata=/var/lib/postgresql/15"
+        "--pgdata=${dataDir}"
         "--auth=trust"
         "--no-locale"
         "--encoding=UTF8"
       ];
-      # dataDir = /. + "/var/lib/postgresql/"; # Default value
+      authentication = ''
+        host    all             all             127.0.0.1/32            trust
+      '';
     };
   };
 
@@ -22,10 +30,10 @@ in {
   system.activationScripts.preActivation = {
     enable = true;
     text = ''
-      if [ ! -d "/var/lib/postgresql/15/" ]; then
+      if [ ! -d "${dataDir}" ]; then
         echo "creating PostgreSQL data directory..."
-        sudo mkdir -m 750 -p /var/lib/postgresql/15/
-        chown -R ${user}:staff /var/lib/postgresql/15/
+        mkdir -m 750 -p ${dataDir}
+        chown -R ${user}:staff ${dataDir}
       fi
     '';
   };

@@ -14,6 +14,7 @@ with pkgs; [
   sqlite
   wget
   zip
+  postgresql
 
   # Encryption and security tools
   age

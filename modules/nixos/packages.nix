@@ -1,8 +1,11 @@
 { pkgs }:
 
 with pkgs;
-let shared-packages = import ../shared/packages.nix { inherit pkgs; };
-in shared-packages ++ [
+let
+  shared-packages = import ../shared/packages.nix { inherit pkgs; };
+in
+shared-packages
+++ [
 
   # Security and authentication
   yubikey-agent
@@ -30,7 +33,6 @@ in shared-packages ++ [
   # Testing and development tools
   rofi
   rofi-calc
-  postgresql
   libtool # for Emacs vterm
 
   # Screenshot and recording tools
