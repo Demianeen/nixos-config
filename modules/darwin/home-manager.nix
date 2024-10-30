@@ -1,4 +1,9 @@
-{ config, pkgs, catppuccin, ... }:
+{
+  config,
+  pkgs,
+  catppuccin,
+  ...
+}:
 
 let
   user = "demian";
@@ -9,7 +14,8 @@ let
   '';
   sharedFiles = import ../shared/files.nix { inherit config pkgs; };
   additionalFiles = import ./files.nix { inherit user config pkgs; };
-in {
+in
+{
   imports = [
     ./dock
     ./modules/skhd.nix
@@ -29,13 +35,13 @@ in {
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix { };
-    # taps = builtins.attrNames config.nix-homebrew.taps;
-    global = { autoUpdate = true; };
+    brews = [ "things.sh" ];
     onActivation = {
       autoUpdate = true;
-      # FIXME: error on casks uninstall
+      # FIXME: error on casks uninstall https://github.com/zhaofengli/nix-homebrew/issues/5
       # cleanup = "uninstall";
     };
+    # taps = builtins.attrNames config.nix-homebrew.taps;
 
     # These app IDs are from using the mas CLI app
     # mas = mac app store
@@ -58,23 +64,32 @@ in {
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
-    users.${user} = { pkgs, config, lib, ... }: {
-      imports =
-        [ ../shared/home-manager.nix catppuccin.homeManagerModules.catppuccin ];
-      home = {
-        enableNixpkgsReleaseCheck = false;
-
-        packages = pkgs.callPackage ./packages.nix { };
-        file = lib.mkMerge [
-          sharedFiles
-          additionalFiles
-          { "emacs-launcher.command".source = myEmacsLauncher; }
+    users.${user} =
+      {
+        pkgs,
+        config,
+        lib,
+        ...
+      }:
+      {
+        imports = [
+          ../shared/home-manager.nix
+          catppuccin.homeManagerModules.catppuccin
         ];
-        stateVersion = "23.11";
+        home = {
+          enableNixpkgsReleaseCheck = false;
+
+          packages = pkgs.callPackage ./packages.nix { };
+          file = lib.mkMerge [
+            sharedFiles
+            additionalFiles
+            { "emacs-launcher.command".source = myEmacsLauncher; }
+          ];
+          stateVersion = "23.11";
+        };
+        # disable Home Manager's man in favor of Nix-Darwin's
+        programs.man.enable = false;
       };
-      # disable Home Manager's man in favor of Nix-Darwin's
-      programs.man.enable = false;
-    };
   };
 
   # Fully declarative dock using the latest from Nix Store

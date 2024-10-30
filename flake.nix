@@ -9,7 +9,9 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-homebrew = { url = "github:zhaofengli-wip/nix-homebrew"; };
+    nix-homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+    };
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
       flake = false;
@@ -22,6 +24,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-alexander = {
+      url = "github:AlexanderWillner/homebrew-tap";
+      flake = false;
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,32 +37,59 @@
       flake = false;
     };
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core
-    , homebrew-cask, home-manager, nixpkgs, disko, agenix, secrets, catppuccin
+  outputs =
+    {
+      self,
+      darwin,
+      nix-homebrew,
+      homebrew-bundle,
+      homebrew-core,
+      homebrew-cask,
+      homebrew-alexander,
+      home-manager,
+      nixpkgs,
+      disko,
+      agenix,
+      secrets,
+      catppuccin,
     }@inputs:
     let
       user = "demian";
-      linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
-      darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+      linuxSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      darwinSystems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
       forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
-      devShell = system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in {
-          default = with pkgs;
+      devShell =
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default =
+            with pkgs;
             mkehell {
-              nativeBuildInputs = with pkgs; [ bashInteractive git age ];
+              nativeBuildInputs = with pkgs; [
+                bashInteractive
+                git
+                age
+              ];
             };
         };
       mkApp = scriptName: system: {
         type = "app";
         program = "${
-            (nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
-              #!/usr/bin/env bash
-              PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
-              echo "Running ${scriptName} for ${system}"
-              exec ${self}/apps/${system}/${scriptName}
-            '')
-          }/bin/${scriptName}";
+          (nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
+            #!/usr/bin/env bash
+            PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
+            echo "Running ${scriptName} for ${system}"
+            exec ${self}/apps/${system}/${scriptName}
+          '')
+        }/bin/${scriptName}";
       };
       mkLinuxApps = system: {
         "apply" = mkApp "apply" system;
@@ -76,12 +109,15 @@
         "check-keys" = mkApp "check-keys" system;
         "rollback" = mkApp "rollback" system;
       };
-    in {
+    in
+    {
       devShells = forAllSystems devShell;
-      apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps
+      apps =
+        nixpkgs.lib.genAttrs linuxSystems mkLinuxApps
         // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
-      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
+      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (
+        system:
         darwin.lib.darwinSystem {
           inherit system;
           specialArgs = inputs;
@@ -96,6 +132,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
+                  "AlexanderWillner/tap" = homebrew-alexander;
                 };
                 mutableTaps = false;
                 autoMigrate = true;
@@ -103,9 +140,11 @@
             }
             ./hosts/darwin
           ];
-        });
+        }
+      );
 
-      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system:
+      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (
+        system:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = inputs;
@@ -122,6 +161,7 @@
             }
             ./hosts/nixos
           ];
-        });
+        }
+      );
     };
 }
