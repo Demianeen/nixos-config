@@ -83,6 +83,8 @@ rec {
       ys = "yabai_sudoers";
       diff = "difft";
       search = "rg -p --glob '!node_modules/*'  $@";
+      ".." = "cd ..";
+      "..." = "cd ../..";
     };
 
     initExtraFirst = # bash
