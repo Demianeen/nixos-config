@@ -24,7 +24,7 @@
     ./modules/starship.nix
     ./modules/tealdeer.nix
     ./modules/wezterm.nix
-    ./modules/yazi.nix
+    ./modules/yazi
     ./modules/zsh.nix
   ];
 

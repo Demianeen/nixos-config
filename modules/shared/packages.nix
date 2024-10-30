@@ -63,6 +63,9 @@ with pkgs; [
   entr
   rsync
   speedtest-cli
+  silicon
+  gobang
+  clipboard-jh
 
   # tui
   sshs
