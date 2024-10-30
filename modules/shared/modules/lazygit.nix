@@ -3,7 +3,15 @@
     enable = true;
     settings = {
       promptToReturnFromSubprocess = false;
-      os = { editPreset = "nvim-remote"; };
+      os = {
+        # https://github.com/jesseduffield/lazygit/issues/3064
+        openLink = ''open "$(echo {{link}} | sed 's/%2F/\//g')"'';
+        # https://github.com/FelipeSharkao/Settings/blob/2786656e249c737edb2bd1f8596cddf6153a2405/Lazygit/config.yml
+        edit = "nvr --remote-tab-wait +'setl bufhidden=wipe' {{filename}}";
+        editAtLine = "nvr --remote-tab-wait +'setl bufhidden=wipe | {{line}}' {{filename}}";
+        editAtLineAndWait = "nvr --remote-tab-wait +'setl bufhidden=wipe | {{line}}' {{filename}}";
+        openDirInEditor = "nvr --remote-tab-wait +'setl bufhidden=wipe' {{dir}}";
+      };
       gui = {
         filterMode = "fuzzy";
         nerdFontsVersion = "3";
@@ -15,7 +23,9 @@
       };
       git = {
         branchLogCmd = "git lg {{branchName}}";
-        paging = { externalDiffCommand = "difft"; };
+        paging = {
+          externalDiffCommand = "difft";
+        };
       };
       customCommands = [
         {
