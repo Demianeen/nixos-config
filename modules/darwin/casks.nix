@@ -5,8 +5,9 @@ _:
   "docker"
   "visual-studio-code"
   "figma"
+
+  # AI
   "chatgpt"
-  "ticktick"
   "cursor"
 
   # Communication Tools
@@ -23,6 +24,12 @@ _:
 
   # Productivity Tools
   "raycast"
+  "ticktick"
+  "amie"
+
+  # Language Learning
+  "ankiapp"
+  "anki"
 
   # Browsers
   "arc"
