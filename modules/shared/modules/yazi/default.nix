@@ -18,8 +18,6 @@
     enableNushellIntegration = true;
 
     initLua = # lua
-      ''
-        require("git"):setup()
-      '';
+      '''';
   };
 }

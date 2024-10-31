@@ -72,7 +72,10 @@ with pkgs;
   speedtest-cli
   silicon
   gobang
+
+  # yazi plugins
   clipboard-jh
+  glow
 
   # tui
   sshs
