@@ -34,4 +34,7 @@ _:
   # Browsers
   "arc"
   "google-chrome"
+
+  # games
+  "osu"
 ]
