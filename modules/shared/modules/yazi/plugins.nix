@@ -22,6 +22,7 @@ in
 {
   programs.yazi.plugins = {
     chmod = "${yaziPlugins}/chmod.yazi";
+    smart-filter = "${yaziPlugins}/smart-filter.yazi";
     system-clipboard = systemClipboard;
     glow = glow;
   };
