@@ -85,6 +85,8 @@ rec {
       search = "rg -p --glob '!node_modules/*'  $@";
       ".." = "cd ..";
       "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
     };
 
     initExtraFirst = # bash
