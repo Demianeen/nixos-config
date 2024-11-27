@@ -21,6 +21,7 @@ _:
   "cleanmymac"
   "1password"
   "utm"
+  "microsoft-office" # all office suite
 
   # Productivity Tools
   "raycast"
