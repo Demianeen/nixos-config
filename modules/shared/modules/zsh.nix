@@ -113,6 +113,8 @@ rec {
           cd ~/.config/nvim
           git restore --staged .
           git add ./lazy-lock.json
+          git add ./spell/en.utf-8.add
+          git add ./spell/en.utf-8.add.spl
           git commit -m "chore(lazy): bump versions"
           cd $CURRENT_DIR
         }
