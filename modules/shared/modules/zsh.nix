@@ -67,6 +67,7 @@ rec {
 
     shellAliases = {
       v = "$EDITOR -b";
+      q = "exit";
       nvim = "$EDITOR -b";
       n = "pnpm nx";
       nx = "pnpm nx";

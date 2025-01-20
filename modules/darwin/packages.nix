@@ -12,8 +12,9 @@ shared-packages
   dockutil
 
   # ui
+  sketchybar
   sketchybar-app-font
 
   # password manager
-  _1password
+  # _1password
 ]

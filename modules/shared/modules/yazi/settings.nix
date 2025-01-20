@@ -1,5 +1,6 @@
 {
   programs.yazi.settings = {
+    log.enabled = true;
     manager = {
       show_hidden = false;
       sort_dir_first = false;
