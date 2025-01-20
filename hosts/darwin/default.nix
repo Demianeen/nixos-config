@@ -1,8 +1,15 @@
-{ agenix, config, pkgs, ... }:
+{
+  agenix,
+  config,
+  pkgs,
+  ...
+}:
 
-let user = "demian";
+let
+  user = "demian";
 
-in {
+in
+{
 
   imports = [
     ../../modules/darwin/secrets.nix
@@ -18,7 +25,10 @@ in {
   # Setup user, packages, programs
   nix = {
     package = pkgs.nix;
-    settings.trusted-users = [ "@admin" "${user}" ];
+    settings.trusted-users = [
+      "@admin"
+      "${user}"
+    ];
 
     gc = {
       user = "root";
@@ -41,21 +51,24 @@ in {
   system.checks.verifyNixPath = false;
 
   # Load configuration that is shared across systems
-  environment.systemPackages = with pkgs;
-    [ emacs-unstable agenix.packages."${pkgs.system}".default ]
+  environment.systemPackages =
+    with pkgs;
+    [
+      agenix.packages."${pkgs.system}".default
+    ]
     ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
-  launchd.user.agents.emacs.path = [ config.environment.systemPath ];
-  launchd.user.agents.emacs.serviceConfig = {
-    KeepAlive = true;
-    ProgramArguments = [
-      "/bin/sh"
-      "-c"
-      "/bin/wait4path ${pkgs.emacs}/bin/emacs && exec ${pkgs.emacs}/bin/emacs --fg-daemon"
-    ];
-    StandardErrorPath = "/tmp/emacs.err.log";
-    StandardOutPath = "/tmp/emacs.out.log";
-  };
+  # launchd.user.agents.emacs.path = [ config.environment.systemPath ];
+  # launchd.user.agents.emacs.serviceConfig = {
+  #   KeepAlive = true;
+  #   ProgramArguments = [
+  #     "/bin/sh"
+  #     "-c"
+  #     "/bin/wait4path ${pkgs.emacs}/bin/emacs && exec ${pkgs.emacs}/bin/emacs --fg-daemon"
+  #   ];
+  #   StandardErrorPath = "/tmp/emacs.err.log";
+  #   StandardOutPath = "/tmp/emacs.out.log";
+  # };
 
   system = {
     stateVersion = 4;
@@ -84,7 +97,9 @@ in {
         tilesize = 56;
       };
 
-      finder = { _FXShowPosixPathInTitle = false; };
+      finder = {
+        _FXShowPosixPathInTitle = false;
+      };
 
       trackpad = {
         Clicking = false;

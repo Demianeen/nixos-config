@@ -18,6 +18,7 @@ with pkgs;
   mpv
   postgresql
   pgcli
+  aichat
 
   # Encryption and security tools
   age
@@ -37,7 +38,6 @@ with pkgs;
   ))
 
   # Media-related packages
-  emacs-all-the-icons-fonts
   dejavu_fonts
   ffmpeg
   fd
