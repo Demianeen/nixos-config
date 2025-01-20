@@ -27,16 +27,16 @@ in
   };
 
   # Create the PostgreSQL data directory, if it does not exist.
-  system.activationScripts.preActivation = {
-    enable = true;
-    text = ''
-      if [ ! -d "${dataDir}" ]; then
-        echo "creating PostgreSQL data directory..."
-        mkdir -m 750 -p ${dataDir}
-        chown -R ${user}:staff ${dataDir}
-      fi
-    '';
-  };
+  # system.activationScripts.preActivation = {
+  #   enable = true;
+  #   text = ''
+  #     if [ ! -d "${dataDir}" ]; then
+  #       echo "creating PostgreSQL data directory..."
+  #       mkdir -m 750 -p ${dataDir}
+  #       chown -R ${user}:staff ${dataDir}
+  #     fi
+  #   '';
+  # };
 
   # Direct output for debugging
   launchd.user.agents.postgresql.serviceConfig = {
