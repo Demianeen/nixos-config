@@ -56,7 +56,7 @@
             shift + ralt - s : yabai -m window --display east; yabai -m display --focus east
 
             # focusing on desktops
-            alt - 0 : yabai -m space --focus recent
+            lalt - 0 : yabai -m space --focus recent
 
             ralt - 1 : yabai -m space --focus 1
             ralt - 2 : yabai -m space --focus 2
@@ -103,6 +103,10 @@
       };
     };
 
-    system = { keyboard = { enableKeyMapping = true; }; };
+    system = {
+      keyboard = {
+        enableKeyMapping = true;
+      };
+    };
   };
 }
