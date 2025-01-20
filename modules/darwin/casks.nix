@@ -5,6 +5,8 @@ _:
   "docker"
   "visual-studio-code"
   "figma"
+  "postman"
+  "insomnia"
 
   # AI
   "chatgpt"
@@ -26,7 +28,7 @@ _:
   # Productivity Tools
   "raycast"
   "ticktick"
-  "amie"
+  "morgen"
 
   # Language Learning
   "ankiapp"

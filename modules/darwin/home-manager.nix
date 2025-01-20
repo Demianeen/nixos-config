@@ -53,6 +53,7 @@ in
       # "1password" = 1333542190;
       # "wireguard" = 1451685025;
       telegram = 747648890;
+      whatsapp = 310633997;
       # paste = 967805235;
     };
   };
