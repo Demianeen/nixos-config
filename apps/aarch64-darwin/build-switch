@@ -10,6 +10,24 @@ FLAKE_SYSTEM="darwinConfigurations.${SYSTEM_TYPE}.system"
 
 export NIXPKGS_ALLOW_UNFREE=1
 
+echo "${YELLOW}Checking for changes in the repository...${NC}"
+if git diff --quiet && git diff --cached --quiet; then
+	echo "${GREEN}No changes to commit.${NC}"
+else
+	echo "${YELLOW}Uncommitted changes found.${NC}"
+	printf "Enter commit message:\n"
+	read -r COMMIT_MESSAGE
+
+	if [ -z "$COMMIT_MESSAGE" ]; then
+		echo "${RED}Commit message cannot be empty.${NC}"
+		exit 1
+	fi
+
+	git add .
+	git commit -m "$COMMIT_MESSAGE"
+	echo "${GREEN}Committed${NC}"
+fi
+
 echo "${YELLOW}Starting build...${NC}"
 nix --extra-experimental-features 'nix-command flakes' build .#$FLAKE_SYSTEM $@
 
