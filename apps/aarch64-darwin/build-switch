@@ -10,7 +10,7 @@ FLAKE_SYSTEM="darwinConfigurations.${SYSTEM_TYPE}.system"
 
 export NIXPKGS_ALLOW_UNFREE=1
 
-echo "${YELLOW}Checking for changes in the repository...${NC}"
+echo "Checking for changes in the repository..."
 if git diff --quiet && git diff --cached --quiet; then
 	echo "${GREEN}No changes to commit.${NC}"
 else
@@ -25,7 +25,7 @@ else
 
 	git add .
 	git commit -m "$COMMIT_MESSAGE"
-	echo "${GREEN}Committed${NC}"
+	echo "Committed"
 fi
 
 echo "${YELLOW}Starting build...${NC}"

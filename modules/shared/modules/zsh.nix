@@ -70,8 +70,7 @@ rec {
       q = "exit";
       nvim = "$EDITOR -b";
       n = "pnpm nx";
-      nx = "pnpm nx";
-      nl = "n lint";
+      psb = "pnpm run storybook";
       y = "pbcopy";
       su = "softwareupdate";
       opf = "op-fuzzy";
