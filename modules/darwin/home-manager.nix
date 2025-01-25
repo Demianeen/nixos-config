@@ -25,7 +25,8 @@ in
     name = "${user}";
     home = "/Users/${user}";
     isHidden = false;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
   };
 
   homebrew = {
@@ -69,6 +70,7 @@ in
         ...
       }:
       {
+        programs.fish.enable = true;
         imports = [
           ../shared/home-manager.nix
           catppuccin.homeManagerModules.catppuccin

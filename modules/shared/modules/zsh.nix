@@ -31,7 +31,7 @@ rec {
   };
 
   programs.zsh = {
-    enable = true;
+    enable = false;
     autocd = false;
     enableCompletion = true;
     autosuggestion.enable = true;

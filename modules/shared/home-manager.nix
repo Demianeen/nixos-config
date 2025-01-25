@@ -25,7 +25,7 @@
     ./modules/tealdeer.nix
     ./modules/wezterm.nix
     ./modules/yazi
-    ./modules/zsh.nix
+    ./modules/fish.nix
   ];
 
   catppuccin = {
