@@ -9,7 +9,6 @@ _:
   "insomnia"
 
   # AI
-  "chatgpt"
   "cursor"
 
   # Communication Tools
