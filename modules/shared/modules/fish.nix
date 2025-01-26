@@ -46,6 +46,34 @@ rec {
       ys = "yabai_sudoers";
       diff = "difft";
       search = "rg -p --glob '!node_modules/*'";
+
+      # pnpm commands
+      p = "pnpm";
+      pex = "pnpm exec"; # Execute a shell command in the scope of a project
+      pdx = "pnpm dlx"; # Fetch a package without installing, hotload and run its command
+      pa = "pnpm add"; # Install a package in dependencies (package.json)
+      pad = "pnpm add --save-dev"; # Install a package in devDependencies (package.json)
+      prm = "pnpm remove"; # Remove installed packages
+      pls = "pnpm list"; # List installed packages
+      pap = "pnpm add --save-peer"; # Install a package in peerDependencies (package.json)
+      pi = "pnpm init"; # Interactively create or update a package.json file
+      pin = "pnpm install"; # Install dependencies defined in package.json
+      prun = "pnpm run"; # Run a defined package script
+      pst = "pnpm start"; # Run the start script defined in package.json
+      pln = "pnpm run lint"; # Run the lint script defined in package.json
+      pdocs = "pnpm run docs"; # Run the docs script defined in package.json
+      pb = "pnpm run build"; # Run the build script defined in package.json
+      pd = "pnpm run dev"; # Run the dev script defined in package.json
+      psv = "pnpm run serve"; # Run the serve script defined in package.json
+      pt = "pnpm test"; # Run the test script defined in package.json
+      ptc = "pnpm test --coverage"; # Run the test script defined in package.json with coverage
+      pu = "pnpm update"; # Update packages to their latest version based on the specified range
+      puil = "pnpm update --interactive --latest"; # Prompt for which outdated packages to upgrade
+      pc = "pnpm create"; # Create a project from a create-* starter kit
+      ppub = "pnpm publish"; # Publish a package to the registry
+      pf = "pnpm -r --filter"; # Use filter in a monorepo root directory
+      pre = "pnpm run preview"; # Run the preview script defined in package.json
+      pr = "pnpm run release"; # Run the release script defined in package.json
     };
 
     shellAliases = {
