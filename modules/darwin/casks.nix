@@ -8,6 +8,7 @@ _:
   "postman"
   "insomnia"
   "ghostty"
+  "font-fira-code"
 
   # AI
   "cursor"
