@@ -7,6 +7,7 @@ _:
   "figma"
   "postman"
   "insomnia"
+  "ghostty"
 
   # AI
   "cursor"

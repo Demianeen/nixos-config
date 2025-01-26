@@ -45,7 +45,7 @@ rec {
       yr = "yabai --restart-service";
       ys = "yabai_sudoers";
       diff = "difft";
-      search = "rg -p --glob '!node_modules/*'";
+      search = "rg --glob '!node_modules/*'";
 
       # pnpm commands
       p = "pnpm";
