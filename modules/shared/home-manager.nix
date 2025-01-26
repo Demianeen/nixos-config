@@ -24,6 +24,7 @@
     ./modules/starship.nix
     ./modules/tealdeer.nix
     ./modules/wezterm.nix
+    ./modules/ghostty.nix
     ./modules/yazi
     ./modules/fish.nix
   ];
