@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.bat = {
     enable = true;
     extraPackages = with pkgs.bat-extras; [
@@ -24,13 +25,22 @@
       man = "batman";
     };
     shellAbbrs = {
-      "-h" = "-h 2>&1 | bat --language=help --style=plain";
-      "--help" = "--help 2>&1 | bat --language=help --style=plain";
+      "-h" = {
+        position = "anywhere";
+        expansion = "-h 2>&1 | bat --language=help --style=plain";
+      };
+      "--help" = {
+        position = "anywhere";
+        expansion = "--help 2>&1 | bat --language=help --style=plain";
+      };
+    };
+    functions = {
+      fzf = # fish
+        ''
+          	command fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
+        '';
     };
     shellInit = ''
-      fzf() {
-      	command fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
-      }
       eval "$(batpipe)"
     '';
   };
