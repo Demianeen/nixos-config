@@ -49,6 +49,7 @@ rec {
 
       # pnpm commands
       p = "pnpm";
+      # general pnpm commands
       pex = "pnpm exec"; # Execute a shell command in the scope of a project
       pdx = "pnpm dlx"; # Fetch a package without installing, hotload and run its command
       pa = "pnpm add"; # Install a package in dependencies (package.json)
@@ -58,15 +59,18 @@ rec {
       pap = "pnpm add --save-peer"; # Install a package in peerDependencies (package.json)
       pi = "pnpm init"; # Interactively create or update a package.json file
       pin = "pnpm install"; # Install dependencies defined in package.json
-      prun = "pnpm run"; # Run a defined package script
-      pst = "pnpm start"; # Run the start script defined in package.json
-      pln = "pnpm run lint"; # Run the lint script defined in package.json
-      pdocs = "pnpm run docs"; # Run the docs script defined in package.json
-      pb = "pnpm run build"; # Run the build script defined in package.json
-      pd = "pnpm run dev"; # Run the dev script defined in package.json
-      psv = "pnpm run serve"; # Run the serve script defined in package.json
-      pt = "pnpm test"; # Run the test script defined in package.json
-      ptc = "pnpm test --coverage"; # Run the test script defined in package.json with coverage
+      # scripts
+      prun = "pnpm run";
+      pst = "pnpm start";
+      pln = "pnpm run lint";
+      pdocs = "pnpm run docs";
+      pb = "pnpm run build";
+      pd = "pnpm run dev";
+      psv = "pnpm run serve";
+      pgs = "pnpm run generate:slice";
+      pt = "pnpm test";
+      ptc = "pnpm test --coverage";
+      # pnpm commands
       pu = "pnpm update"; # Update packages to their latest version based on the specified range
       puil = "pnpm update --interactive --latest"; # Prompt for which outdated packages to upgrade
       pc = "pnpm create"; # Create a project from a create-* starter kit
