@@ -14,7 +14,7 @@ in
       font-family = "FiraCode Nerd Font";
       font-size = 13;
       font-style = "Medium";
-      adjust-cell-height = 3;
+      adjust-cell-height = 4;
       macos-titlebar-style = "hidden";
       mouse-hide-while-typing = true;
       quit-after-last-window-closed = true;
