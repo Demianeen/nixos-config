@@ -4,7 +4,7 @@
   config = {
     services = {
       skhd = {
-        enable = false;
+        enable = true;
         package = pkgs.skhd;
         skhdConfig = # bash
           ''
