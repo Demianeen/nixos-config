@@ -99,9 +99,6 @@
             yabai -m rule --add app="^Simulator$" manage=on
             yabai -m rule --add app="CleanShot X" manage=off mouse_follows_focus=off
 
-            yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --layout bsp'
-            yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
-
             # apply all yabai rules on yabai start to all apps
             yabai -m rule --apply
           '';
