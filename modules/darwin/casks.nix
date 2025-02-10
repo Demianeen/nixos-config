@@ -38,6 +38,7 @@ _:
   # Browsers
   "arc"
   "google-chrome"
+  "zen-browser"
 
   # games
   "osu"
