@@ -30,6 +30,7 @@ _:
   "raycast"
   "ticktick"
   "morgen"
+  "proton-mail"
 
   # Language Learning
   "ankiapp"
