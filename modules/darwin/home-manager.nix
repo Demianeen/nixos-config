@@ -55,6 +55,7 @@ in
       # "wireguard" = 1451685025;
       telegram = 747648890;
       whatsapp = 310633997;
+      nextdns = 1464122853;
       # paste = 967805235;
     };
   };
