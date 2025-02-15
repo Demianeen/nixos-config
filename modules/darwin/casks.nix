@@ -35,6 +35,7 @@ _:
   # Language Learning
   "ankiapp"
   "anki"
+  "protonvpn"
 
   # Browsers
   "arc"
