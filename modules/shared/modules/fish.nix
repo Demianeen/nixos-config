@@ -124,6 +124,7 @@ rec {
         argumentNames = [
           "old_name"
           "new_name"
+          "path"
         ];
         description = "Recursively rename files, replacing old_name with new_name in filenames.";
         body = # fish
@@ -131,6 +132,11 @@ rec {
             if test -z "$old_name" -o -z "$new_name"
                 echo "Usage: rename_files <old_name> <new_name>"
                 return 1
+            end
+
+            # default path value
+            if test -z "$path"
+                set path .
             end
 
             for file in (find . -type f -name "*$old_name*")
