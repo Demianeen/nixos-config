@@ -119,6 +119,27 @@ rec {
           git commit -m "chore(lazy): bump versions"
           cd $CURRENT_DIR
         '';
+      gitignore = "curl -sL https://www.gitignore.io/api/$argv";
+      rename_files = {
+        argumentNames = [
+          "old_name"
+          "new_name"
+        ];
+        description = "Recursively rename files, replacing old_name with new_name in filenames.";
+        body = # fish
+          ''
+            if test -z "$old_name" -o -z "$new_name"
+                echo "Usage: rename_files <old_name> <new_name>"
+                return 1
+            end
+
+            for file in (find . -type f -name "*$old_name*")
+                set new_name (string replace "$old_name" "$new_name" -- $file)
+                mv "$file" "$new_name"
+            end
+          '';
+      };
+
     };
   };
 }
