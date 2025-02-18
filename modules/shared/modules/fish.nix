@@ -148,9 +148,9 @@ rec {
 
             for file in (find "$path" -type f -name "*$old_name*")
                 echo "🔍 Found '$file'..."
-                set dir (dirname "$file")
-                set base_name (basename "$file")
-                set new_name (string replace "$old_name" "$new_name" -- "$base_name")
+                set -l dir (dirname "$file")
+                set -l base_name (basename "$file")
+                set -l new_name (string replace "$old_name" "$new_name" -- "$base_name")
                 echo "🔍 Moving '$file' to '$dir/$new_name'..."
                 mv "$file" "$dir/$new_name"
                 echo "🔍 Done.\n"
