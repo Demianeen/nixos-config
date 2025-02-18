@@ -139,9 +139,11 @@ rec {
                 set path .
             end
 
-            for file in (find . -type f -name "*$old_name*")
-                set new_name (string replace "$old_name" "$new_name" -- $file)
-                mv "$file" "$new_name"
+            for file in (find "$path" -type f -name "*$old_name*")
+                set dir (dirname "$file")
+                set base_name (basename "$file")
+                set new_name (string replace "$old_name" "$new_name" -- "$base_name")
+                mv "$file" "$dir/$new_name"
             end
           '';
       };
