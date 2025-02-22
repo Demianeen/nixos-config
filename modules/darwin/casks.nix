@@ -30,6 +30,7 @@ _:
   "raycast"
   "ticktick"
   "morgen"
+  "notion-calendar"
   "proton-mail"
   "obsidian"
 
