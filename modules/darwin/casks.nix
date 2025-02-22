@@ -31,6 +31,7 @@ _:
   "ticktick"
   "morgen"
   "proton-mail"
+  "obsidian"
 
   # Language Learning
   "ankiapp"
