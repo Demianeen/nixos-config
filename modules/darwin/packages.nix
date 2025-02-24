@@ -14,6 +14,8 @@ shared-packages
   # ui
   sketchybar
   sketchybar-app-font
+  yabai
+  skhd
 
   # password manager
   # _1password
