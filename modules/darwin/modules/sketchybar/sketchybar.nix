@@ -7,7 +7,7 @@ in
   config = {
     services = {
       sketchybar = {
-        enable = true;
+        enable = false;
         extraPackages = [ pkgs.lua5_4 ];
       };
     };

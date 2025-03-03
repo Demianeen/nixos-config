@@ -11,11 +11,12 @@ shared-packages
   # system
   dockutil
 
-  # ui
+  # sketchybar
   sketchybar
   sketchybar-app-font
   yabai
   skhd
+  bat
 
   # password manager
   # _1password
