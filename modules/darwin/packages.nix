@@ -16,7 +16,6 @@ shared-packages
   sketchybar-app-font
   yabai
   skhd
-  bat
 
   # password manager
   # _1password
