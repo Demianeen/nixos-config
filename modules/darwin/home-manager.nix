@@ -96,12 +96,11 @@ in
     dock = {
       enable = true;
       entries = [
-        { path = "/Applications/Spotify.app/"; }
         { path = "/Applications/Things3.app/"; }
-        { path = "/Applications/Amie.app/"; }
-        { path = "/Applications/WezTerm.app/"; }
+        { path = "/Applications/Ghostty.app/"; }
         { path = "/Applications/Telegram.app/"; }
         { path = "/Applications/Arc.app/"; }
+        { path = "/Applications/NordVPN.app"; }
         {
           path = "${config.users.users.${user}.home}/Downloads";
           section = "others";
