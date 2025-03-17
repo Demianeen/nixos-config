@@ -39,7 +39,6 @@ rec {
       opf = "op-fuzzy";
       opfi = "op-fuzzy-pbcopy-id";
       ls = "ls --color=auto";
-      l = "eza -1 --long --icons --git";
       lsm = "l --sort=modified";
       lgi = "l --git-ignore";
       yr = "yabai --restart-service";
@@ -86,6 +85,7 @@ rec {
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
+      l = "eza -1 --long --icons --git";
     };
 
     shellInit = # fish

@@ -38,10 +38,5 @@
     zoxide.enable = true;
     eza.enable = true;
     fd.enable = true;
-
-    jqp.enable = true;
-    jqp.config = {
-      theme.name = "catppuccin-frappe";
-    };
   };
 }
