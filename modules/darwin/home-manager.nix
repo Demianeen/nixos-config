@@ -29,6 +29,19 @@ in
     ignoreShellProgramCheck = true;
   };
 
+  security = {
+    pam = {
+      services = {
+        sudo_local = {
+          enable = true;
+          reattach = true;
+          touchIdAuth = true;
+          watchIdAuth = true;
+        };
+      };
+    };
+  };
+
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix { };
