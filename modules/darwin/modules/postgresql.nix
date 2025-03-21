@@ -2,7 +2,7 @@
 
 let
   user = "demian";
-  dataDir = "/var/lib/postgresql";
+  dataDir = "/var/lib/postgresql/17";
 in
 {
   services = {
