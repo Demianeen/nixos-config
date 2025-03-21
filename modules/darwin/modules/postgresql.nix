@@ -13,13 +13,13 @@ in
       settings = {
         log_connections = true;
       };
-      # initdbArgs = [
-      #   "-U ${user}"
-      #   "--pgdata=${dataDir}"
-      #   "--auth=trust"
-      #   "--no-locale"
-      #   "--encoding=UTF8"
-      # ];
+      initdbArgs = [
+        "-U ${user}"
+        "--pgdata=${dataDir}"
+        "--auth=trust"
+        "--no-locale"
+        "--encoding=UTF8"
+      ];
       ensureDatabases = [ "demian" ];
       ensureUsers = [
         {
