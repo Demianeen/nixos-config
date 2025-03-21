@@ -85,10 +85,11 @@ with pkgs;
   rustup
 
   # Node.js development tools
-  pnpm
+  nodejs
   nodePackages.npm
   nodePackages.prettier
-  nodejs
+  pnpm
+  nest-cli
 
   # Python packages
   python312
