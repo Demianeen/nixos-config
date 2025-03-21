@@ -13,14 +13,25 @@ in
       settings = {
         log_connections = true;
       };
-      initdbArgs = [
-        "-U ${user}"
-        "--pgdata=${dataDir}"
-        "--auth=trust"
-        "--no-locale"
-        "--encoding=UTF8"
+      # initdbArgs = [
+      #   "-U ${user}"
+      #   "--pgdata=${dataDir}"
+      #   "--auth=trust"
+      #   "--no-locale"
+      #   "--encoding=UTF8"
+      # ];
+      ensureDatabases = [ "demian" ];
+      ensureUsers = [
+        {
+          name = "demian";
+          ensurePermissions = {
+            "DATABASE demian" = "ALL PRIVILEGES";
+          };
+        }
       ];
       authentication = ''
+        # Local and TCP access with no password (dev only!)
+        local   all             all                                     trust
         host    all             all             127.0.0.1/32            trust
       '';
     };
