@@ -4,6 +4,7 @@ _:
   # Development Tools
   "docker"
   "visual-studio-code"
+  "pgadmin4"
   "figma"
   "postman"
   "insomnia"
