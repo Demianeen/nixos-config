@@ -78,7 +78,7 @@
             yabai -m rule --add space=tasks app="^(Things|Notion Calendar|Rise|Amie)$"
             yabai -m rule --add space=design app="^(Figma|Miro)$"
             yabai -m rule --add space=documents app="^(Microsoft Word|Microsoft Excel|Microsoft PowerPoint|Acrobat)$"
-            yabai -m rule --add space=japanese app="^(Obsidian)$"
+            yabai -m rule --add space=notes app="^(Obsidian)$"
             # yabai -m rule --add space=calls app="^(zoom.us|Teams)$"
             yabai -m rule --add space=japanese app="^(Anki)$"
             yabai -m rule --add space=email app="^(Mail|Microsoft Outlook)$"
