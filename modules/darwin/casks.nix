@@ -44,6 +44,7 @@ _:
   "arc"
   "google-chrome"
   "zen-browser"
+  "brave-browser"
 
   # games
   "osu"
