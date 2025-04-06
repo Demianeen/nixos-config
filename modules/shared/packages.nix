@@ -23,6 +23,7 @@ with pkgs;
   # Encryption and security tools
   age
   age-plugin-yubikey
+  yubikey-manager
   gnupg
   libfido2
 
