@@ -72,11 +72,12 @@
         {
           default =
             with pkgs;
-            mkehell {
+            mkShell {
               nativeBuildInputs = with pkgs; [
                 bashInteractive
                 git
                 age
+                age-plugin-yubikey
               ];
             };
         };
