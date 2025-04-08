@@ -46,6 +46,11 @@ rec {
       diff = "difft";
       search = "rg --glob '!node_modules/*'";
 
+      # npm commands
+      np = "npm";
+      nps = "npm start";
+      npr = "npm run";
+
       # pnpm commands
       p = "pnpm";
       # general pnpm commands
