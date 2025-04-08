@@ -87,7 +87,7 @@ in
         programs.fish.enable = true;
         imports = [
           ../shared/home-manager.nix
-          catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeModules.catppuccin
         ];
         home = {
           enableNixpkgsReleaseCheck = false;
