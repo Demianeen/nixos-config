@@ -32,7 +32,6 @@ rec {
 
     shellAbbrs = {
       q = "exit";
-      n = "pnpm nx";
       psb = "pnpm run storybook";
       y = "pbcopy";
       su = "softwareupdate";
@@ -47,9 +46,10 @@ rec {
       search = "rg --glob '!node_modules/*'";
 
       # npm commands
-      np = "npm";
-      nps = "npm start";
-      npr = "npm run";
+      n = "npm";
+      ns = "npm start";
+      nr = "npm run";
+      nsb = "npm run storybook";
 
       # pnpm commands
       p = "pnpm";
