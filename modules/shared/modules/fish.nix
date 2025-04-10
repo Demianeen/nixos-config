@@ -47,7 +47,7 @@ rec {
 
       # npm commands
       n = "npm";
-      ns = "npm start";
+      nst = "npm start";
       nr = "npm run";
       nsb = "npm run storybook";
 
