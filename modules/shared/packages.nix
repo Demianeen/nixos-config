@@ -26,6 +26,7 @@ with pkgs;
   yubikey-manager
   gnupg
   libfido2
+  gitleaks
 
   # Cloud-related tools and SDKs
   k9s
