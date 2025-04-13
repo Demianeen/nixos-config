@@ -1,3 +1,6 @@
 *.swp
 result
 .DS_Store
+
+identities
+id_ed25519_agenix.age
