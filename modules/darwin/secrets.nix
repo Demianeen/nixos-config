@@ -1,7 +1,15 @@
-{ config, pkgs, agenix, secrets, ... }:
+{
+  config,
+  pkgs,
+  agenix,
+  secrets,
+  ...
+}:
 
-let user = "demian";
-in {
+let
+  user = "demian";
+in
+{
   age.identityPaths = [ "/Users/${user}/.ssh/id_ed25519" ];
 
   # Your secrets go here
@@ -13,6 +21,14 @@ in {
   #
   #       If you change the key name, you'll need to update the SSH configuration in shared/home-manager.nix
   #       so Github reads it correctly.
+
+  age.secrets."groq-api-key" = {
+    symlink = true;
+    path = "/Users/${user}/.config/secrets/groq-api-key";
+    file = "${secrets}/groq-api-key.age";
+    mode = "600";
+    owner = "${user}";
+  };
 
   #
   # age.secrets."github-ssh-key" = {
@@ -31,5 +47,4 @@ in {
   #   mode = "600";
   #   owner = "${user}";
   # };
-
 }

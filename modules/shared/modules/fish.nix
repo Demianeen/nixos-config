@@ -106,6 +106,10 @@ rec {
         # Disable the startup message
         set -U fish_greeting
         fish_vi_key_bindings
+
+        if test -f "$HOME/.config/secrets/groq-api-key"
+          set -gx GROQ_API_KEY (cat "$HOME/.config/secrets/groq-api-key")
+        end
       '';
 
     functions = {
