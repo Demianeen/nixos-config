@@ -19,6 +19,7 @@ _:
   "notion"
   "slack"
   "zoom"
+  "clay"
 
   # Utility Tools
   "syncthing"
