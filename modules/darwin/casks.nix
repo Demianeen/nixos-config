@@ -37,7 +37,6 @@ _:
   "obsidian"
 
   # Language Learning
-  "ankiapp"
   "anki"
   "nordvpn"
 
