@@ -20,6 +20,7 @@ _:
   "slack"
   "zoom"
   "clay"
+  "teamviewer"
 
   # Utility Tools
   "syncthing"
