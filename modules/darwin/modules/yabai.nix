@@ -63,24 +63,23 @@
             space_destroy_amount 10
 
             space_create 1 1 term
-            space_create 1 2 social
-            space_create 1 3 tasks
-            space_create 1 4 design
-            space_create 1 5 documents
+            space_create 1 2 browser
+            space_create 1 3 social
+            space_create 1 4 tasks
+            space_create 1 5 slack
             space_create 1 6 notes
-            space_create 1 7 japanese
-            space_create 1 8 email
-            space_create 2 9 browser
+            space_create 1 7 temporary
+            space_create 1 8 documents
+            space_create 1 9 email
 
             yabai -m rule --add space=term app="^(WezTerm|VSCode|Simulator)$"
             yabai -m rule --add space=browser app="^(Arc)$"
             yabai -m rule --add space=social app="^(Telegram|Toggl Track)$"
-            yabai -m rule --add space=tasks app="^(Things|Notion Calendar|Rise|Amie)$"
-            yabai -m rule --add space=design app="^(Figma|Miro)$"
-            yabai -m rule --add space=documents app="^(Microsoft Word|Microsoft Excel|Microsoft PowerPoint|Acrobat)$"
+            yabai -m rule --add space=tasks app="^(Things)$"
             yabai -m rule --add space=notes app="^(Obsidian)$"
             # yabai -m rule --add space=calls app="^(zoom.us|Teams)$"
-            yabai -m rule --add space=japanese app="^(Anki)$"
+            yabai -m rule --add space=temporary app="^(Anki|Figma|Miro)$"
+            yabai -m rule --add space=documents app="^(Microsoft Word|Microsoft Excel|Microsoft PowerPoint|Acrobat)$"
             yabai -m rule --add space=email app="^(Mail|Microsoft Outlook)$"
 
             # resizes simulators on yabai restart
