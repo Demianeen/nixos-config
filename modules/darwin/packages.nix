@@ -17,6 +17,9 @@ shared-packages
   yabai
   skhd
 
+  # nvim
+  pngpaste # img-clip.nvim
+
   # password manager
   # _1password
 ]
