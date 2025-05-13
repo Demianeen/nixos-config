@@ -22,6 +22,7 @@
         showCommandLog = false;
       };
       git = {
+        autoForwardBranches = "allBranches";
         overrideGpg = true; # overrides lazygit gpg restrictions
         branchLogCmd = "git lg {{branchName}}";
         paging = {
