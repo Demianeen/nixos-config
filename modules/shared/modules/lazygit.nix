@@ -39,48 +39,6 @@
           subprocess = true;
         }
         {
-          key = "f";
-          context = "localBranches";
-          prompts = [
-            {
-              type = "menu";
-              title = "What kind of branch is it?";
-              key = "BranchType";
-              options = [
-                {
-                  name = "feature";
-                  description = "a feature branch";
-                  value = "feature";
-                }
-                {
-                  name = "bugfix";
-                  description = "a bugfix branch";
-                  value = "bugfix";
-                }
-                {
-                  name = "release";
-                  description = "a release branch";
-                  value = "release";
-                }
-                {
-                  name = "hotfix";
-                  description = "a hotfix branch";
-                  value = "hotfix";
-                }
-              ];
-            }
-            {
-              type = "input";
-              title = "What is the new branch name?";
-              key = "BranchName";
-              initialValue = "";
-            }
-          ];
-          command = "git flow {{.Form.BranchType}} start {{.Form.BranchName}}";
-          description = "run gitflow";
-          loadingText = "creating branch...";
-        }
-        {
           key = "<c-a>";
           description = "Pick AI commit";
           command = ''
