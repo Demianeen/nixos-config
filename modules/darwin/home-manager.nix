@@ -46,7 +46,7 @@ in
     casks = pkgs.callPackage ./casks.nix { };
     brews = [ "things.sh" ];
     onActivation = {
-      autoUpdate = true;
+      # autoUpdate = true;
       # FIXME: error on casks uninstall https://github.com/zhaofengli/nix-homebrew/issues/5
       # cleanup = "uninstall";
     };
