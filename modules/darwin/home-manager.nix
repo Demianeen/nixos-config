@@ -65,9 +65,9 @@ in
     masApps = {
       # "1password" = 1333542190;
       # "wireguard" = 1451685025;
-      telegram = 747648890;
-      whatsapp = 310633997;
-      nextdns = 1464122853;
+      # telegram = 747648890;
+      # whatsapp = 310633997;
+      # nextdns = 1464122853;
       # paste = 967805235;
     };
   };
