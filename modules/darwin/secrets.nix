@@ -30,6 +30,14 @@ in
     owner = "${user}";
   };
 
+  age.secrets."fal-api-key" = {
+    symlink = true;
+    path = "/Users/${user}/.config/secrets/fal-api-key";
+    file = "${secrets}/groq-api-key.age";
+    mode = "600";
+    owner = "${user}";
+  };
+
   #
   # age.secrets."github-ssh-key" = {
   #   symlink = true;

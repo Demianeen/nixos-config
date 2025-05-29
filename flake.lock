@@ -372,11 +372,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1744548234,
-        "narHash": "sha256-Z9Rg0MZR3mcvpZeUEW7ZVL5xkiVr3OATjIwJ8Br4xZ0=",
+        "lastModified": 1748500613,
+        "narHash": "sha256-GFn3u8SEIscdyzw2Xr7Or2Ce3Bt9M3pDrSRjCyHGpWI=",
         "ref": "refs/heads/main",
-        "rev": "8ceb64ee52c4b84e1e86f3fd114d7c2c9fc7e77a",
-        "revCount": 4,
+        "rev": "b5208a5e228c5e51866c68d9bf9696a6942d24c9",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/Demianeen/nix-secrets.git"
       },
