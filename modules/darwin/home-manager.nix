@@ -13,7 +13,6 @@ let
 in
 {
   imports = [
-    ./dock
     ./modules/skhd.nix
     ./modules/yabai.nix
     ./modules/postgresql.nix
@@ -102,24 +101,5 @@ in
         # disable Home Manager's man in favor of Nix-Darwin's
         programs.man.enable = false;
       };
-  };
-
-  # Fully declarative dock using the latest from Nix Store
-  local = {
-    dock = {
-      enable = true;
-      entries = [
-        { path = "/Applications/Things3.app/"; }
-        { path = "/Applications/Ghostty.app/"; }
-        { path = "/Applications/Telegram.app/"; }
-        { path = "/Applications/Arc.app/"; }
-        { path = "/Applications/NordVPN.app"; }
-        {
-          path = "${config.users.users.${user}.home}/Downloads";
-          section = "others";
-          options = "--sort dateadded --view fan --display stack";
-        }
-      ];
-    };
   };
 }
