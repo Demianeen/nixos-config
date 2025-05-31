@@ -112,10 +112,6 @@ rec {
         if test -f "$HOME/.config/secrets/groq-api-key"
           set -gx GROQ_API_KEY (cat "$HOME/.config/secrets/groq-api-key")
         end
-
-        if test -f "$HOME/.config/secrets/fal-api-key"
-          set -gx FAL_KEY (cat "$HOME/.config/secrets/fal-api-key")
-        end
       '';
 
     functions = {
