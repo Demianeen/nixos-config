@@ -10,7 +10,7 @@ let
   user = "demian";
 in
 {
-  age.identityPaths = [ "/Users/${user}/.ssh/id_ed25519_agenix" ];
+  age.identityPaths = [ "/Users/${user}/.ssh/id_ed25519" ];
 
   # Your secrets go here
   #
@@ -41,7 +41,7 @@ in
   age.secrets."fal-api-key" = {
     symlink = true;
     path = "/Users/${user}/.config/secrets/fal-api-key";
-    file = "${secrets}/groq-api-key.age";
+    file = "${secrets}/fal-api-key.age";
     mode = "600";
     owner = "${user}";
   };
