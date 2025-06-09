@@ -112,6 +112,10 @@ rec {
         if test -f "$HOME/.config/secrets/groq-api-key"
           set -gx GROQ_API_KEY (cat "$HOME/.config/secrets/groq-api-key")
         end
+
+        if test -f "$HOME/.config/secrets/gemini-api-key"
+          set -gx GEMINI_API_KEY (cat "$HOME/.config/secrets/gemini-api-key")
+        end
       '';
 
     functions = {

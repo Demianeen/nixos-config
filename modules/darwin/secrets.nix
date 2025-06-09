@@ -22,6 +22,14 @@ in
   #       If you change the key name, you'll need to update the SSH configuration in shared/home-manager.nix
   #       so Github reads it correctly.
 
+  age.secrets."gemini-api-key" = {
+    symlink = true;
+    path = "/Users/${user}/.config/secrets/gemini-api-key";
+    file = "${secrets}/gemini-api-key.age";
+    mode = "600";
+    owner = "${user}";
+  };
+
   age.secrets."groq-api-key" = {
     symlink = true;
     path = "/Users/${user}/.config/secrets/groq-api-key";
