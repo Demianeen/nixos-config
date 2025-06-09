@@ -109,16 +109,25 @@ rec {
         set -U fish_greeting
         fish_vi_key_bindings
 
-        if test -f "$HOME/.config/secrets/groq-api-key"
-          set -gx GROQ_API_KEY (cat "$HOME/.config/secrets/groq-api-key")
-        end
-
-        if test -f "$HOME/.config/secrets/gemini-api-key"
-          set -gx GEMINI_API_KEY (cat "$HOME/.config/secrets/gemini-api-key")
-        end
+        load_secret GROQ_API_KEY "$HOME/.config/secrets/groq-api-key"
+        load_secret GEMINI_API_KEY "$HOME/.config/secrets/gemini-api-key"
       '';
 
     functions = {
+      load_secret = {
+        argumentNames = [
+          "name"
+          "path"
+        ];
+        description = "Load secret from path into global variable if it exists, else warn.";
+        body = ''
+          if test -f "$path"
+            set -gx $name (cat "$path")
+          else
+            echo "⚠️  $name is missing at $path" 1>&2
+          end
+        '';
+      };
       nvim_plugins_update = # fish
         ''
           echo "[nvim] updating lazy plugins..."
