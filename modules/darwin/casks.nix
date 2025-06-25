@@ -44,7 +44,6 @@ _:
   # Browsers
   "arc"
   "google-chrome"
-  "zen-browser"
   "brave-browser"
 
   # games
