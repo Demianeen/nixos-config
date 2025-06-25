@@ -16,8 +16,13 @@
     #   )
     # ];
     matchBlocks = {
-      "github.com" = {
+      "personalgit" = {
+        hostname = "github.com";
         identityFile = "Github";
+      };
+      "workgit" = {
+        hostname = "github.com";
+        identityFile = "GithubMinimal";
       };
     };
   };
