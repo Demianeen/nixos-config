@@ -22,6 +22,22 @@ in
   #       If you change the key name, you'll need to update the SSH configuration in shared/home-manager.nix
   #       so Github reads it correctly.
 
+  age.secrets."chatgpt-api-key" = {
+    symlink = true;
+    path = "/Users/${user}/.config/secrets/chatgpt-api-key";
+    file = "${secrets}/chatgpt-api-key.age";
+    mode = "600";
+    owner = "${user}";
+  };
+
+  age.secrets."claude-api-key" = {
+    symlink = true;
+    path = "/Users/${user}/.config/secrets/claude-api-key";
+    file = "${secrets}/claude-api-key.age";
+    mode = "600";
+    owner = "${user}";
+  };
+
   age.secrets."gemini-api-key" = {
     symlink = true;
     path = "/Users/${user}/.config/secrets/gemini-api-key";

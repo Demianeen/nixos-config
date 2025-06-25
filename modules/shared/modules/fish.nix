@@ -111,6 +111,10 @@ rec {
 
         load_secret GROQ_API_KEY "$HOME/.config/secrets/groq-api-key"
         load_secret GEMINI_API_KEY "$HOME/.config/secrets/gemini-api-key"
+
+        load_secret AVANTE_OPENAI_API_KEY "$HOME/.config/secrets/chatgpt-api-key"
+        load_secret AVANTE_ANTHROPIC_API_KEY "$HOME/.config/secrets/claude-api-key"
+        load_secret AVANTE_GEMINI_API_KEY "$HOME/.config/secrets/gemini-api-key"
       '';
 
     functions = {
