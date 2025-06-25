@@ -46,6 +46,14 @@ in
     owner = "${user}";
   };
 
+  age.secrets."tavily-api-key" = {
+    symlink = true;
+    path = "/Users/${user}/.config/secrets/tavily-api-key";
+    file = "${secrets}/tavily-api-key.age";
+    mode = "600";
+    owner = "${user}";
+  };
+
   age.secrets."groq-api-key" = {
     symlink = true;
     path = "/Users/${user}/.config/secrets/groq-api-key";
