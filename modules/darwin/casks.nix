@@ -21,6 +21,7 @@ _:
   "zoom"
   "clay"
   "teamviewer"
+  "linear-linear"
 
   # Utility Tools
   "syncthing"
