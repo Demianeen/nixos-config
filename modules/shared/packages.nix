@@ -19,6 +19,7 @@ with pkgs;
   postgresql
   pgcli
   aichat
+  ngrok
 
   # Encryption and security tools
   age
