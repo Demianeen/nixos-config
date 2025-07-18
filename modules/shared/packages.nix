@@ -98,6 +98,7 @@ with pkgs;
   python312
   python312Packages.virtualenv
   poetry
+  uv
 
   # TODO: This is just for rest.nvim luarocks package. It is better to isolate it with nvim
   (pkgs.lua5_1.withPackages (
