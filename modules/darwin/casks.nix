@@ -2,6 +2,7 @@ _:
 
 [
   # Development Tools
+  "zed"
   "docker"
   "visual-studio-code"
   "pgadmin4"
