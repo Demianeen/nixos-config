@@ -20,6 +20,7 @@ with pkgs;
   pgcli
   aichat
   ngrok
+  awscli2
 
   # Encryption and security tools
   age
