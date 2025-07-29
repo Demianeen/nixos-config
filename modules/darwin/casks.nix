@@ -3,7 +3,6 @@ _:
 [
   # Development Tools
   "zed"
-  "docker"
   "visual-studio-code"
   "pgadmin4"
   "figma"
@@ -25,7 +24,6 @@ _:
   "linear-linear"
 
   # Utility Tools
-  "syncthing"
   "cleanmymac"
   "1password"
   "utm"
