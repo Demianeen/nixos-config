@@ -2,7 +2,7 @@
   programs.jqp = {
     enable = true;
     settings = {
-      theme.name = "catppuccin-frappe";
+      theme.name = "catppuccin-latte";
     };
   };
 }

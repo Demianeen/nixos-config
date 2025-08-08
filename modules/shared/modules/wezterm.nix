@@ -8,7 +8,7 @@
         local act = wezterm.action
 
         return {
-        	color_scheme = "Catppuccin Frappe",
+        	color_scheme = "Catppuccin Latte",
 
         	font = wezterm.font_with_fallback({
         		{ family = "FiraCode Nerd Font", weight = "Medium" },

@@ -10,7 +10,7 @@ in
     package = ghostty-mock;
     installBatSyntax = false;
     settings = {
-      theme = "catppuccin-frappe";
+      theme = "catppuccin-latte";
       font-family = "FiraCode Nerd Font";
       font-size = 13;
       font-style = "Medium";
