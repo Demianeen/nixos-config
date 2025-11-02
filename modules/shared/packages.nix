@@ -49,7 +49,7 @@ with pkgs;
   hack-font
   jetbrains-mono
   noto-fonts
-  noto-fonts-emoji
+  noto-fonts-color-emoji
   meslo-lgs-nf
 
   # Text and terminal utilities
@@ -75,7 +75,6 @@ with pkgs;
   rsync
   speedtest-cli
   silicon
-  gobang
 
   # yazi plugins
   clipboard-jh
@@ -89,17 +88,17 @@ with pkgs;
   rustup
 
   # Node.js development tools
-  nodejs
-  nodePackages.npm
-  nodePackages.prettier
+  nodejs_20
   pnpm
-  nest-cli
+  # nest-cli
 
   # Python packages
   python312
   python312Packages.virtualenv
   poetry
   uv
+  
+  bootdev-cli
 
   # TODO: This is just for rest.nvim luarocks package. It is better to isolate it with nvim
   (pkgs.lua5_1.withPackages (
