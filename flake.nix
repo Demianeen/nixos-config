@@ -3,7 +3,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
     darwin = {
       url = "github:LnL7/nix-darwin/master";
@@ -11,6 +14,7 @@
     };
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
@@ -22,10 +26,6 @@
     };
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-    homebrew-alexander = {
-      url = "github:AlexanderWillner/homebrew-tap";
       flake = false;
     };
     disko = {
@@ -45,7 +45,6 @@
       homebrew-bundle,
       homebrew-core,
       homebrew-cask,
-      homebrew-alexander,
       home-manager,
       nixpkgs,
       disko,
@@ -133,7 +132,6 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
-                  "AlexanderWillner/tap" = homebrew-alexander;
                 };
                 mutableTaps = false;
                 autoMigrate = true;

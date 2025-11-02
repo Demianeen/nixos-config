@@ -142,7 +142,9 @@
     },
     "home-manager_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1762041416,
@@ -155,22 +157,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "homebrew-alexander": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1683757409,
-        "narHash": "sha256-1AGZoUQLitHbWoueDhH1IFgcO+JBB7DWueLrpTNI0Ws=",
-        "owner": "AlexanderWillner",
-        "repo": "homebrew-tap",
-        "rev": "ad03758c0177c2f5ccd2b86695493dc668563695",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AlexanderWillner",
-        "repo": "homebrew-tap",
         "type": "github"
       }
     },
@@ -274,22 +260,6 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1761373498,
-        "narHash": "sha256-Q/uhWNvd7V7k1H1ZPMy/vkx3F8C13ZcdrKjO7Jv7v0c=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "6a08e6bb4e46ff7fcbb53d409b253f6bad8a28ce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
         "lastModified": 1761907660,
         "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
         "owner": "nixos",
@@ -311,12 +281,11 @@
         "darwin": "darwin_2",
         "disko": "disko",
         "home-manager": "home-manager_2",
-        "homebrew-alexander": "homebrew-alexander",
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "secrets": "secrets"
       }
     },
